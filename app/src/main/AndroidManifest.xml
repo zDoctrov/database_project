@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Database_project">
         <activity
+            android:name=".CharCreator1Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

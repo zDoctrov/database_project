@@ -3,10 +3,9 @@ package com.example.database_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class CharCreator1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
-    }//end onCreate
-}//end mainActivity
+        setContentView(R.layout.activity_char_creator1)
+    }
+}
