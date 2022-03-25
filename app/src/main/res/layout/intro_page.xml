@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleView"
-        app:srcCompat="@drawable/chrome_ASJwCSKJWE" />
+        app:srcCompat="@drawable/nft_monkey" />
 
     <Button
         android:id="@+id/CreateCharacterbtn"
