@@ -19,5 +19,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val button2 = findViewById<Button>(R.id.QueryPagebtn)
+
+        button2.setOnClickListener{
+            val intent = Intent(this, QueryPage::class.java)
+            startActivity(intent)
+        }
+
     }//end onCreate
 }//end mainActivity
