@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Database_project">
         <activity
-            android:name=".CharCreator1Activity"
+            android:name=".CharActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".CharActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

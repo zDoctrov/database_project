@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/activity_char.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/activity_char2.xml" value="0.14719202898550723" />
+        <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/char_create_1.xml" value="0.1" />
+        <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/char_create_2.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/intro_page.xml" value="0.1526268115942029" />
         <entry key="app/src/main/res/layout/activity_char_creator1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2209126790364583" />
         <entry key="app/src/main/res/layout/char_create_1.xml" value="0.21770833333333334" />
