@@ -9,18 +9,18 @@ class CharActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.char_create_3)
-    }
+
     val button = findViewById<Button>(R.id.back3Btn)
 
-  /*  button.setOnClickListener{
+    button.setOnClickListener{
         val intent = Intent(this, CharActivity2::class.java)
         startActivity(intent)
-    }*/
+    }
 
     val button2 = findViewById<Button>(R.id.btnFinish)
 
-   //button2.setOnClickListener{
+        //button2.setOnClickListener{
         //this should save the character
    // }
-
+    }
 }
