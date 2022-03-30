@@ -6,9 +6,11 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_char.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_char_creator1.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_instance_result_page.xml" value="0.2099031531292459" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2209126790364583" />
         <entry key="app/src/main/res/layout/char_create_1.xml" value="0.21770833333333334" />
         <entry key="app/src/main/res/layout/char_create_2.xml" value="0.21770833333333334" />
+        <entry key="app/src/main/res/layout/char_create_3.xml" value="0.2539154052734375" />
         <entry key="app/src/main/res/layout/intro_page.xml" value="0.17346014492753623" />
       </map>
     </option>
