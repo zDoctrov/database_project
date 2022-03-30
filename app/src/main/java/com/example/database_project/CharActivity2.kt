@@ -8,7 +8,7 @@ import android.widget.Button
 class CharActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_char2)
+        setContentView(R.layout.char_create_2)
 
         val button = findViewById<Button>(R.id.back2Btn)
 
