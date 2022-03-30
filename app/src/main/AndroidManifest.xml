@@ -16,6 +16,9 @@
             android:name=".CharActivity3"
             android:exported="false" />
         <activity
+            android:name=".QueryPage"
+            android:exported="false" />
+        <activity
             android:name=".CharActivity2"
             android:exported="false" />
         <activity
