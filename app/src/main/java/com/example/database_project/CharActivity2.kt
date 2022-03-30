@@ -20,7 +20,7 @@ class CharActivity2 : AppCompatActivity() {
         val button2 = findViewById<Button>(R.id.continue2Btn)
 
         button2.setOnClickListener{
-            val intent = Intent(this, CharActivity2::class.java)
+            val intent = Intent(this, CharActivity3::class.java)
             startActivity(intent)
         }
 
