@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Database_project">
         <activity
-            android:name=".instanceResultPage"
+            android:name=".char_query.instanceResultPage"
             android:exported="false" />
         <activity
-            android:name=".CharActivity3"
+            android:name=".char_creator.CharActivity3"
             android:exported="false" />
         <activity
-            android:name=".QueryPage"
+            android:name=".char_query.QueryPage"
             android:exported="false" />
         <activity
-            android:name=".CharActivity2"
+            android:name=".char_creator.CharActivity2"
             android:exported="false" />
         <activity
-            android:name=".CharActivity"
+            android:name=".char_creator.CharActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

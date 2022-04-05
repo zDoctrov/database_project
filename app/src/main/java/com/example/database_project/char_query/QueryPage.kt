@@ -1,9 +1,9 @@
-package com.example.database_project
+package com.example.database_project.char_query
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.database_project.R
 
 class QueryPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

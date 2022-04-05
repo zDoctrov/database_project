@@ -1,15 +1,13 @@
-package com.example.database_project
+package com.example.database_project.char_creator
 
 import android.content.Intent
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate1Binding
-import java.time.format.ResolverStyle
 
 class CharActivity : AppCompatActivity() {
     private lateinit var binding : CharCreate1Binding

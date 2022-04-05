@@ -1,7 +1,8 @@
-package com.example.database_project
+package com.example.database_project.char_query
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.database_project.R
 
 class instanceResultPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

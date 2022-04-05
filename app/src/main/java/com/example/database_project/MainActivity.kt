@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.database_project.database.MyHelper
+import com.example.database_project.char_creator.CharActivity
+import com.example.database_project.char_query.QueryPage
 
 class MainActivity : AppCompatActivity() {
 
