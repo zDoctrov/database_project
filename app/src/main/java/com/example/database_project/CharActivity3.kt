@@ -13,8 +13,7 @@ class CharActivity3 : AppCompatActivity() {
     val button = findViewById<Button>(R.id.back3Btn)
 
     button.setOnClickListener{
-        val intent = Intent(this, CharActivity2::class.java)
-        startActivity(intent)
+        finish()
     }
 
     val button2 = findViewById<Button>(R.id.btnFinish)

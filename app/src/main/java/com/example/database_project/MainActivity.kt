@@ -12,9 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.intro_page)
 
-        //Creates Database
-        var helper = MyHelper(applicationContext)
-        var db = helper.readableDatabase
+        //TODO: Using the database in main activity causes a runtime error
+//        //Creates Database
+//        var helper = MyHelper(applicationContext)
+//        var db = helper.readableDatabase
 
         val button = findViewById<Button>(R.id.CreateCharacterbtn)
 

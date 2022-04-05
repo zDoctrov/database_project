@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintTop_toBottomOf="@+id/dropDownFaction"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewFaction" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/dropDownFaction"
         android:layout_width="209dp"
         android:layout_height="19dp"
         android:layout_marginTop="9dp"

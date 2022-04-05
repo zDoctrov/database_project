@@ -13,8 +13,7 @@ class QueryPage : AppCompatActivity() {
         val backButton = findViewById<Button>(R.id.back4btn)
 
         backButton.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }
