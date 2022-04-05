@@ -10,9 +10,9 @@ class QueryPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_query_page)
 
-        val button = findViewById<Button>(R.id.back4btn)
+        val backButton = findViewById<Button>(R.id.back4btn)
 
-        button.setOnClickListener{
+        backButton.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
