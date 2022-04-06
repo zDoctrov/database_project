@@ -10,6 +10,9 @@ import android.widget.Button
 //import com.demo.roomonetoonedemo.db.UserEntity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate3Binding
+import com.example.database_project.room_db.BuildEntity
+import com.example.database_project.room_db.RoomAppDB
+import com.example.database_project.room_db.SubjectEntity
 
 class CharActivity3 : AppCompatActivity() {
     private lateinit var binding : CharCreate3Binding
@@ -44,13 +47,20 @@ class CharActivity3 : AppCompatActivity() {
             creationSession.user_class = classChoice
 
 //            val userDao = RoomAppDB.getAppDatabase(this)?.userDao()
+//
 //            val userEntity = UserEntity(0, "Zac", "123", "lol@email")
 //            val id = userDao?.insertUser(userEntity)
 //
 //            val addressEntity = Address(0, id!!.toInt(), "some address 123", "some city", "some state", "some zip")
 //            userDao?.insertAddress(addressEntity)
 
+            val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
 
+            val subjectEntity = SubjectEntity(0, creationSession.name)
+            val id = characterDao?.insertSubject(subjectEntity)
+
+            val buildEntity = BuildEntity(0, id!!.toInt(), creationSession.race, creationSession.hair, creationSession.ears, creationSession.eyes)
+            characterDao?.insertBuild(buildEntity)
 
             //Check what's stored
             creationSession.printAllData()

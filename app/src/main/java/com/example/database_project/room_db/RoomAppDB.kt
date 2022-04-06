@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SubjectEntity::class], version = 1)
+@Database(entities = [SubjectEntity::class, BuildEntity::class], version = 1)
 abstract class RoomAppDB : RoomDatabase(){
 
     //Returns the Dao
