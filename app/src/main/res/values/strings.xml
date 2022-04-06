@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">database_project</string>
 
+<!--    CharActivity1-->
     <string-array name="races">
         <item>Human</item>
         <item>Dwarf</item>
@@ -14,4 +15,33 @@
         <item>United Scholars</item>
         <item>Dastardly Deacons</item>
     </string-array>
+
+<!--    CharActivity2-->
+    <string-array name="hair">
+        <item>Long</item>
+        <item>Short</item>
+        <item>Fuzzy</item>
+    </string-array>
+
+    <string-array name="ears">
+        <item>Round</item>
+        <item>Pointed</item>
+        <item>Square</item>
+    </string-array>
+
+    <string-array name="eyes">
+        <item>Wide</item>
+        <item>Squinted</item>
+        <item>Lazy</item>
+    </string-array>
+
+<!--    CharActivity3-->
+    <string-array name="user_class">
+        <item>Noble</item>
+        <item>Brigand</item>
+        <item>Merchant</item>
+        <item>Commoner</item>
+        <item>Peasant</item>
+    </string-array>
+
 </resources>

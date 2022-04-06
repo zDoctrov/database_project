@@ -24,11 +24,11 @@ class CharActivity : AppCompatActivity() {
         //Setup ArrayAdapters for the data used inside the spinners
         val raceList = res.getStringArray(R.array.races)
         val raceArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, raceList)
-        binding.dropDownRace.adapter = raceArrayAdapter
+        binding.spinnerRace.adapter = raceArrayAdapter
 
         val factionList = res.getStringArray(R.array.factions)
         val factionArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, factionList)
-        binding.dropDownFaction.adapter = factionArrayAdapter
+        binding.spinnerFaction.adapter = factionArrayAdapter
 
         val backButton = findViewById<Button>(R.id.backBtn)
         backButton.setOnClickListener{
@@ -37,13 +37,20 @@ class CharActivity : AppCompatActivity() {
 
         val continueButton = findViewById<Button>(R.id.continueBtn)
         continueButton.setOnClickListener{
+            //Get user inputs from layout
             var nameChoice: String = binding.userInputName.text.toString()
-            val raceChoice = binding.dropDownRace.selectedItem?.toString()
-            val factionChoice = binding.dropDownFaction.selectedItem?.toString()
+            val raceChoice = binding.spinnerRace.selectedItem.toString()
+            val factionChoice = binding.spinnerFaction.selectedItem.toString()
 
-            println(nameChoice)
-            println(raceChoice)
-            println(factionChoice)
+            //TODO: Throw error if user doesn't type in a name and leaves nameChoice blank
+
+            //Save data in session object, so we can deposit all data into the DB at the same time on CharActivity3
+            creationSession.name = nameChoice
+            creationSession.race = raceChoice
+            creationSession.faction = factionChoice
+
+            //Check what's stored
+            creationSession.printAllData()
 
             val intent = Intent(this, CharActivity2::class.java)
             startActivity(intent)
