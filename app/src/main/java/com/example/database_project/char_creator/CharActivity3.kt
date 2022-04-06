@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
-import com.demo.roomonetoonedemo.db.Address
-import com.demo.roomonetoonedemo.db.RoomAppDB
-import com.demo.roomonetoonedemo.db.UserEntity
+//import com.demo.roomonetoonedemo.db.Address
+//import com.demo.roomonetoonedemo.db.RoomAppDB
+//import com.demo.roomonetoonedemo.db.UserEntity
 import com.example.database_project.R
-import com.example.database_project.databinding.CharCreate1Binding
 import com.example.database_project.databinding.CharCreate3Binding
 
 class CharActivity3 : AppCompatActivity() {
@@ -44,12 +43,14 @@ class CharActivity3 : AppCompatActivity() {
             //Save data in session object, so we can deposit all data into the DB at the same time on CharActivity3
             creationSession.user_class = classChoice
 
-            val userDao = RoomAppDB.getAppDatabase(this)?.userDao()
-            val userEntity = UserEntity(0, "Zac", "123", "lol@email")
-            val id = userDao?.insertUser(userEntity)
+//            val userDao = RoomAppDB.getAppDatabase(this)?.userDao()
+//            val userEntity = UserEntity(0, "Zac", "123", "lol@email")
+//            val id = userDao?.insertUser(userEntity)
+//
+//            val addressEntity = Address(0, id!!.toInt(), "some address 123", "some city", "some state", "some zip")
+//            userDao?.insertAddress(addressEntity)
 
-            val addressEntity = Address(0, id!!.toInt(), "some address 123", "some city", "some state", "some zip")
-            userDao?.insertAddress(addressEntity)
+
 
             //Check what's stored
             creationSession.printAllData()
