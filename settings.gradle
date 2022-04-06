@@ -11,6 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
 }
 rootProject.name = "database_project"
 include ':app'
