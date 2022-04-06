@@ -2,12 +2,15 @@ package com.example.database_project.char_creator
 
 import android.content.Intent
 import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate1Binding
+
 
 class CharActivity : AppCompatActivity() {
     private lateinit var binding : CharCreate1Binding
@@ -16,6 +19,9 @@ class CharActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.char_create_1)
         val res: Resources = resources              //Needed to access strings.xml where the spinner options are stored
+
+
+
 
         //Set up binding, so you can reference the ID's of things on this activity's layout
         binding = CharCreate1Binding.inflate(layoutInflater)
@@ -29,6 +35,34 @@ class CharActivity : AppCompatActivity() {
         val factionList = res.getStringArray(R.array.factions)
         val factionArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
+
+
+      /*  raceList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }//end onNothingSelected
+
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                when (parent.getItemAtPosition(position).toString()) {
+                    "Human" -> {
+                        binding.imageViewRace.setImageResource()
+                    }//end human image
+                    "Dwarf" -> {
+                        //sets binding.Image.to the image view
+                    }//end dwarf image
+                    "Elf" -> {
+                        //sets binding.Image.to the image view
+                    }
+                }//end Elf image
+            } // to close the onItemSelected
+
+
+        }//onItemSelectedListener*/
+
+
+
+
 
         val backButton = findViewById<Button>(R.id.backBtn)
         backButton.setOnClickListener{
@@ -56,7 +90,21 @@ class CharActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        binding.userInputName
+        //binding.userInputName ????
 
+    }//end on Create
+
+/*    fun onItemSelected(
+        parent: AdapterView<*>?, v: View?, position: Int,
+        id: Long
+    ) {
+        //itemsName = spinner.getSelectedItem().toString();
+
+        if
     }
-}
+
+    fun onNothingSelected(arg0: AdapterView<*>?) {
+        // TODO Auto-generated method stub
+    }*/
+
+}//end CharActivity

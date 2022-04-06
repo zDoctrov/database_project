@@ -65,5 +65,12 @@ class CharActivity3 : AppCompatActivity() {
             //Check what's stored
             creationSession.printAllData()
         }
+
+     // We need to add functionality to Finish function
+     // val button = findViewById<Button>(R.id.btnFinish)
+     // button.setOnClickListener{
+        //save() or send function to data base
+     // }
+
     }
 }

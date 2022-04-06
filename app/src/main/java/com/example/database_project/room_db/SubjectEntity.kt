@@ -16,12 +16,47 @@ data class SubjectEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "i
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("subject_id"),
             onDelete = ForeignKey.CASCADE)
-        )
-)
+        )//end foreignKeys
+)//tableName build
+
+
 data class BuildEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "build_id") val build_id: Int,
                         @ColumnInfo(name = "subject_id") val id: Int,
                         @ColumnInfo(name = "race") val race: String,
                         @ColumnInfo(name = "hair") val hair: String,
                         @ColumnInfo(name = "ears") val ears: String,
                         @ColumnInfo(name = "eyes") val eyes: String
-                        )
+                        )//end BuildEntity
+
+
+@Entity(tableName = "faction",
+    foreignKeys = arrayOf(
+        ForeignKey(entity = SubjectEntity::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("subject_id"),
+            onDelete = ForeignKey.CASCADE)
+    )//end foreignKeys
+)//end faction table
+
+data class FactionEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "faction_id") val build_id: Int,
+                        @ColumnInfo(name = "subject_id") val id: Int,
+                        @ColumnInfo(name = "reputation") val reputation: String,
+                        @ColumnInfo(name = "ideology") val ideology: String
+)//end FactionEntity
+
+
+@Entity(tableName = "status",
+    foreignKeys = arrayOf(
+        ForeignKey(entity = SubjectEntity::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("subject_id"),
+            onDelete = ForeignKey.CASCADE)
+    )//end foreignKeys
+)//end faction table
+
+data class StatusEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "status_id") val build_id: Int,
+                          @ColumnInfo(name = "subject_id") val id: Int,
+                          @ColumnInfo(name = "credit") val credit: String
+)//end StatusEntity
+
+

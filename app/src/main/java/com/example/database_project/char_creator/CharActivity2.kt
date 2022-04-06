@@ -35,6 +35,7 @@ class CharActivity2 : AppCompatActivity() {
         val eyeArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, eyeList)
         binding.spinnerEyes.adapter = eyeArrayAdapter
 
+        //why are we calling finish here
         val button = findViewById<Button>(R.id.back2Btn)
         button.setOnClickListener{
             finish()
@@ -57,7 +58,7 @@ class CharActivity2 : AppCompatActivity() {
 
             val intent = Intent(this, CharActivity3::class.java)
             startActivity(intent)
-        }
+        }//end buttonListener onClick
 
-    }
-}
+    }//end onCreate
+}//end CharActivity2
