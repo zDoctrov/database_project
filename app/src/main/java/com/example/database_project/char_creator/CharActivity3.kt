@@ -11,6 +11,7 @@ import android.widget.Button
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate3Binding
 import com.example.database_project.room_db.BuildEntity
+import com.example.database_project.room_db.FactionEntity
 import com.example.database_project.room_db.RoomAppDB
 import com.example.database_project.room_db.SubjectEntity
 
@@ -62,6 +63,9 @@ class CharActivity3 : AppCompatActivity() {
             val buildEntity = BuildEntity(0, id!!.toInt(), creationSession.race, creationSession.hair, creationSession.ears, creationSession.eyes)
             characterDao?.insertBuild(buildEntity)
 
+            val factionEntity = FactionEntity(0, id!!.toInt(), creationSession.faction_reputation, creationSession.faction_ideology)
+            characterDao?.insertFaction(factionEntity)
+
             //Check what's stored
             creationSession.printAllData()
         }
@@ -73,4 +77,5 @@ class CharActivity3 : AppCompatActivity() {
      // }
 
     }
+
 }

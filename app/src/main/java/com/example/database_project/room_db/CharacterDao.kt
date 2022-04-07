@@ -19,6 +19,9 @@ interface CharacterDao {
     @Insert
     fun insertBuild(build: BuildEntity)
 
+    @Insert
+    fun insertFaction(faction: FactionEntity)
+
     //Gets data from both the Subject table and Build table
     @Query("SELECT * FROM subject inner join build on subject.id = build.subject_id")
     fun getSubjectWithBuild(): List<SubjectWithBuild>?

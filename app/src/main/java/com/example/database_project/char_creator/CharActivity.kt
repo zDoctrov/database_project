@@ -82,6 +82,7 @@ class CharActivity : AppCompatActivity() {
             creationSession.name = nameChoice
             creationSession.race = raceChoice
             creationSession.faction = factionChoice
+            getFactionAttributes(factionChoice)
 
             //Check what's stored
             creationSession.printAllData()
@@ -94,17 +95,30 @@ class CharActivity : AppCompatActivity() {
 
     }//end on Create
 
-/*    fun onItemSelected(
-        parent: AdapterView<*>?, v: View?, position: Int,
-        id: Long
-    ) {
-        //itemsName = spinner.getSelectedItem().toString();
 
-        if
+    fun getFactionAttributes(faction: String) {
+        when(faction){
+            "Merchants Guild"->{
+                creationSession.faction_reputation = "Positive"
+                creationSession.faction_ideology = "Industrialist"
+            }
+            "Free Guard"->{
+                creationSession.faction_reputation = "Positive"
+                creationSession.faction_ideology = "Royalists"
+            }
+            "Iron Company"->{
+                creationSession.faction_reputation = "Negative"
+                creationSession.faction_ideology = "Militaristic"
+            }
+            "United Scholars"->{
+                creationSession.faction_reputation = "Mixed"
+                creationSession.faction_ideology = "Academic"
+            }
+            "Dastardly Deacons"->{
+                creationSession.faction_reputation = "Negative"
+                creationSession.faction_ideology = "Religious"
+            }
+        }
     }
-
-    fun onNothingSelected(arg0: AdapterView<*>?) {
-        // TODO Auto-generated method stub
-    }*/
 
 }//end CharActivity

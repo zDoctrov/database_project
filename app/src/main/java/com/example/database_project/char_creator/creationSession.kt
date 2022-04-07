@@ -14,6 +14,8 @@ object creationSession {
 
     //CharActivity3 data
     var user_class: String = ""
+    var faction_reputation: String = ""
+    var faction_ideology: String = ""
 
     fun printAllData(){
         print("Name: $name\n" +
