@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.database_project.room_db.RoomAppDB
 import com.google.android.material.snackbar.Snackbar
 
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
 
     private val titles = arrayOf("Chapter One", "Chapter Two", "Chapter Three",
     "Chapter Four", "Chapter Five", "Chapter Six", "Chapter Seven", "Chapter Eight")
