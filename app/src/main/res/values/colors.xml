@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    Colors created for character customization app-->
+    <color name="create_green">#5cdb5c</color>
+    <color name="query_orange">#ffa500</color>
+    <color name="danger_red">#ff0021</color>
 </resources>

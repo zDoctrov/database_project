@@ -37,6 +37,7 @@ data class BuildEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "bui
 )//end faction table
 data class FactionEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "faction_id") val faction_id: Int,
                         @ColumnInfo(name = "subject_id") val id: Int,
+                        @ColumnInfo(name = "faction_name") val faction_name: String,
                         @ColumnInfo(name = "reputation") val reputation: String,
                         @ColumnInfo(name = "ideology") val ideology: String
                         )//end FactionEntity

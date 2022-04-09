@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 //DON'T FORGET YOU HAVE TO ADD A REFERENCE TO EACH TABLE YOU ADD IN THE @Database PARAMETERS
-@Database(entities = [SubjectEntity::class, BuildEntity::class, FactionEntity::class, ClassEntity::class], version = 2, exportSchema = true)
+@Database(entities = [SubjectEntity::class, BuildEntity::class, FactionEntity::class, ClassEntity::class], version = 3, exportSchema = true)
 abstract class RoomAppDB : RoomDatabase(){
 
     //Returns the Dao
@@ -27,12 +27,22 @@ abstract class RoomAppDB : RoomDatabase(){
 
         }
 
+        //I forgot to add faction names to the table
+        var MIGRATION_2_3: Migration = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE 'faction' ADD COLUMN `faction_name` TEXT NOT NULL DEFAULT 'Merchants Guild'")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `class` (`class_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `subject_id` INTEGER NOT NULL, `class_name` TEXT NOT NULL, `currency` REAL NOT NULL, FOREIGN KEY(`subject_id`) REFERENCES `subject`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )")
+            }
+
+        }
+
         fun getAppDatabase(context: Context): RoomAppDB? {
             if(INSTANCE == null) {
                INSTANCE = Room.databaseBuilder<RoomAppDB>(
                     context.applicationContext, RoomAppDB::class.java, "character_db"
                 ).allowMainThreadQueries()
                    .addMigrations(MIGRATION_1_2)
+                   .addMigrations(MIGRATION_2_3)
                    .build()
             }
             return  INSTANCE

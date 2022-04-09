@@ -61,7 +61,7 @@ class CharActivity3 : AppCompatActivity() {
             val buildEntity = BuildEntity(0, id!!.toInt(), creationSession.race, creationSession.hair, creationSession.ears, creationSession.eyes)
             characterDao?.insertBuild(buildEntity)
 
-            val factionEntity = FactionEntity(0, id!!.toInt(), creationSession.faction_reputation, creationSession.faction_ideology)
+            val factionEntity = FactionEntity(0, id!!.toInt(), creationSession.faction, creationSession.faction_reputation, creationSession.faction_ideology)
             characterDao?.insertFaction(factionEntity)
 
             val classEntity = ClassEntity(0, id!!.toInt(), creationSession.user_class, creationSession.user_currency)
