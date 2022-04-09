@@ -18,7 +18,7 @@ abstract class RoomAppDB : RoomDatabase(){
     companion object{
         private var INSTANCE : RoomAppDB? = null
 
-        //TODO: Add migration function to allow us to add new tables to the DB
+        //Added migration function to allow us to add new tables to the DB
         var MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `faction` (`faction_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `subject_id` INTEGER NOT NULL, `reputation` TEXT NOT NULL, `ideology` TEXT NOT NULL, FOREIGN KEY(`subject_id`) REFERENCES `subject`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )")

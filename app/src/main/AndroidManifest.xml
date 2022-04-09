@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Database_project">
         <activity
+            android:name=".char_query.QuerySearchResults"
+            android:exported="false" />
+        <activity
             android:name=".char_query.instanceResultPage"
             android:exported="false" />
         <activity

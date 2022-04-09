@@ -1,13 +1,14 @@
 package com.example.database_project.char_query
 
+import android.content.Intent
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import com.example.database_project.R
+import com.example.database_project.char_creator.CharActivity2
 import com.example.database_project.databinding.ActivityQueryPageBinding
-import com.example.database_project.databinding.CharCreate2Binding
 
 class QueryPage : AppCompatActivity() {
     private lateinit var binding : ActivityQueryPageBinding
@@ -17,8 +18,6 @@ class QueryPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_query_page)
         val res: Resources = resources
-
-        val backButton = findViewById<Button>(R.id.back4btn)
 
         binding= ActivityQueryPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -51,8 +50,13 @@ class QueryPage : AppCompatActivity() {
         binding.spinnerClass2.adapter = class2ArrayAdapter
 
 
+        val searchButton = findViewById<Button>(R.id.searchBtn)
+        searchButton.setOnClickListener{
+            val intent = Intent(this, QuerySearchResults::class.java)
+            startActivity(intent)
+        }
 
-
+        val backButton = findViewById<Button>(R.id.back4btn)
         backButton.setOnClickListener{
             finish()
         }

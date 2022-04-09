@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">database_project</string>
 
-<!--    CharActivity1-->
+    <!--    CharActivity1-->
     <string-array name="races">
         <item>Human</item>
         <item>Dwarf</item>
@@ -16,7 +16,7 @@
         <item>Dastardly Deacons</item>
     </string-array>
 
-<!--    CharActivity2-->
+    <!--    CharActivity2-->
     <string-array name="hair">
         <item>Long</item>
         <item>Short</item>
@@ -35,7 +35,7 @@
         <item>Lazy</item>
     </string-array>
 
-<!--    CharActivity3-->
+    <!--    CharActivity3-->
     <string-array name="user_class">
         <item>Noble</item>
         <item>Brigand</item>
@@ -45,7 +45,7 @@
     </string-array>
 
 
-<!-- Queries page -->
+    <!-- Queries page -->
     <string-array name="races_empty">
         <item>-</item>
         <item>Human</item>
@@ -91,7 +91,6 @@
         <item>Commoner</item>
         <item>Peasant</item>
     </string-array>
-
 
 
 </resources>
