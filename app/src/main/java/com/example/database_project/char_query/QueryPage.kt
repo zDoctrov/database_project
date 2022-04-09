@@ -7,14 +7,12 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import com.example.database_project.R
-import com.example.database_project.char_creator.CharActivity2
 import com.example.database_project.char_creator.creationSession
 import com.example.database_project.databinding.ActivityQueryPageBinding
 import com.example.database_project.room_db.RoomAppDB
 
 class QueryPage : AppCompatActivity() {
     private lateinit var binding : ActivityQueryPageBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

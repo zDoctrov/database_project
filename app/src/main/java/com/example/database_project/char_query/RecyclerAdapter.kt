@@ -1,17 +1,23 @@
 package com.example.database_project
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.database_project.char_creator.CharActivity3
 import com.example.database_project.char_creator.creationSession
 import com.google.android.material.snackbar.Snackbar
 import org.w3c.dom.Text
 
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(
+    private val listener: OnCharListener
+) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("Chapter One", "Chapter Two", "Chapter Three",
     "Chapter Four", "Chapter Five", "Chapter Six", "Chapter Seven", "Chapter Eight")
@@ -43,6 +49,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
+                //Interface allows us to use any passed Activity as the owner
+                //  If statement to prevent deleted items from being clicked (Just in case)
+                if (position !=RecyclerView.NO_POSITION){
+                    listener.onCharClick(position)
+                }
+
             }
         }//end init
 
@@ -66,5 +78,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return creationSession.queryResults.size
+    }
+
+    interface OnCharListener{
+        fun onCharClick(pos : Int)
     }
 }

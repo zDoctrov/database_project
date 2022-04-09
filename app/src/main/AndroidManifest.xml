@@ -13,7 +13,7 @@
             android:name=".char_query.QuerySearchResults"
             android:exported="false" />
         <activity
-            android:name=".char_query.instanceResultPage"
+            android:name=".char_query.InstanceResultPage"
             android:exported="false" />
         <activity
             android:name=".char_creator.CharActivity3"

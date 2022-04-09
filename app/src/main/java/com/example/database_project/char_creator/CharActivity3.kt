@@ -1,8 +1,5 @@
 package com.example.database_project.char_creator
 
-//import com.demo.roomonetoonedemo.db.Address
-//import com.demo.roomonetoonedemo.db.RoomAppDB
-//import com.demo.roomonetoonedemo.db.UserEntity
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
