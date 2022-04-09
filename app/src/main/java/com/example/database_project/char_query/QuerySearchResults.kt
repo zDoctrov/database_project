@@ -17,7 +17,6 @@ class QuerySearchResults : AppCompatActivity(), RecyclerAdapter.OnCharListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        Context context =
         setContentView(R.layout.activity_query_search_results)
 
         binding = ActivityQuerySearchResultsBinding.inflate(layoutInflater)
@@ -34,6 +33,7 @@ class QuerySearchResults : AppCompatActivity(), RecyclerAdapter.OnCharListener {
     //Need to be able to have this Activity communicate with the RecyclerAdapter it houses (To add an Intent transition from clicking a Card Instance)
     override fun onCharClick(pos: Int) {
         val intent = Intent(this, InstanceResultPage::class.java)
+            .putExtra("position", pos)
         startActivity(intent)
-    }
+    }//end onCharClick
 }

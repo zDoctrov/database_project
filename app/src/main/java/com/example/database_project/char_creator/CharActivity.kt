@@ -36,34 +36,6 @@ class CharActivity : AppCompatActivity() {
         val factionArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
 
-
-      /*  raceList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-
-            }//end onNothingSelected
-
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                when (parent.getItemAtPosition(position).toString()) {
-                    "Human" -> {
-                        binding.imageViewRace.setImageResource()
-                    }//end human image
-                    "Dwarf" -> {
-                        //sets binding.Image.to the image view
-                    }//end dwarf image
-                    "Elf" -> {
-                        //sets binding.Image.to the image view
-                    }
-                }//end Elf image
-            } // to close the onItemSelected
-
-
-        }//onItemSelectedListener*/
-
-
-
-
-
         val backButton = findViewById<Button>(R.id.backBtn)
         backButton.setOnClickListener{
             finish()
