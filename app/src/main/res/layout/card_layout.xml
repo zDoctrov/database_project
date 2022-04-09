@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/card_view"
@@ -17,36 +18,37 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        >
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/characterName"
+            android:layout_width="236dp"
+            android:layout_height="40dp"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/characterRace"
+            android:layout_width="236dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            app:layout_constraintStart_toStartOf="@+id/characterName"
+            app:layout_constraintTop_toBottomOf="@+id/characterName" />
+
+        <TextView
+            android:id="@+id/characterFaction"
+            android:layout_width="236dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="@+id/characterName"
+            app:layout_constraintTop_toBottomOf="@+id/characterRace" />
 
         <ImageView
             android:id="@+id/itemImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/itemTitle"
-            android:layout_width="236dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="16dp"
-            android:textSize="30sp"
-            app:layout_constraintLeft_toRightOf="@+id/itemImage"
-            app:layout_constraintStart_toEndOf="@+id/itemImage"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/itemDetail"
-            android:layout_width="236dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintLeft_toRightOf="@+id/itemImage"
-            app:layout_constraintStart_toEndOf="@+id/itemImage"
-            app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

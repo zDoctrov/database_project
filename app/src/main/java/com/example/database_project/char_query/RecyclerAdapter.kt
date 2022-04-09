@@ -1,18 +1,17 @@
 package com.example.database_project
 
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.database_project.room_db.RoomAppDB
+import com.example.database_project.char_creator.creationSession
 import com.google.android.material.snackbar.Snackbar
+import org.w3c.dom.Text
 
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-
 
     private val titles = arrayOf("Chapter One", "Chapter Two", "Chapter Three",
     "Chapter Four", "Chapter Five", "Chapter Six", "Chapter Seven", "Chapter Eight")
@@ -28,13 +27,15 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var itemImage : ImageView
-        var itemTitle : TextView
-        var itemDetail : TextView
+        var charName : TextView
+        var charRace : TextView
+        var charFaction : TextView
 
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
-            itemTitle = itemView.findViewById(R.id.itemTitle)
-            itemDetail = itemView.findViewById(R.id.itemDetail)
+            charName = itemView.findViewById(R.id.characterName)
+            charRace = itemView.findViewById(R.id.characterRace)
+            charFaction = itemView.findViewById(R.id.characterFaction)
 
             itemView.setOnClickListener {v : View ->
                 var position : Int = getAdapterPosition()
@@ -45,8 +46,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             }
         }//end init
 
-
-
     }//end inner class
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
@@ -54,16 +53,18 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             .inflate(R.layout.card_layout, viewGroup, false)
 
         return ViewHolder(v)
-
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerAdapter.ViewHolder, position: Int) {
-        viewHolder.itemTitle.text = titles[position]
-        viewHolder.itemDetail.text = details[position]
-        viewHolder.itemImage.setImageResource(images[position])
+        viewHolder.charName.text = "Name: " + creationSession.queryResults[position].name
+        viewHolder.charRace.text = "Race: " + creationSession.queryResults[position].race
+        viewHolder.charFaction.text = "Faction: " + creationSession.queryResults[position].faction_name
+
+        //TODO: Image profiles for each character
+        viewHolder.itemImage.setImageResource(R.drawable.android_image_1)
     }
 
     override fun getItemCount(): Int {
-        return titles.size
+        return creationSession.queryResults.size
     }
 }

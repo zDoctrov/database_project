@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import com.example.database_project.R
 import com.example.database_project.char_creator.CharActivity2
+import com.example.database_project.char_creator.creationSession
 import com.example.database_project.databinding.ActivityQueryPageBinding
 import com.example.database_project.room_db.RoomAppDB
 
@@ -55,11 +56,14 @@ class QueryPage : AppCompatActivity() {
         searchButton.setOnClickListener{
             //Read Data from database
             val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
-            val charList = characterDao?.getAllFourTablesJoined()
+            creationSession.queryResults = characterDao?.getAllFourTablesJoined()!!
 
-            charList?.forEach{
+            println("Number of Results: ${creationSession.queryResults.size}\n")
+
+            creationSession.queryResults?.forEach{
                 println("Record #${it.id}: Name=${it.name}, Race=${it.race}, Faction=${it.faction_name}\n")
             }
+
 
             val intent = Intent(this, QuerySearchResults::class.java)
             startActivity(intent)

@@ -1,13 +1,15 @@
 package com.example.database_project.char_creator
 
-import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
 //import com.demo.roomonetoonedemo.db.Address
 //import com.demo.roomonetoonedemo.db.RoomAppDB
 //import com.demo.roomonetoonedemo.db.UserEntity
+import android.content.Intent
+import android.content.res.Resources
+import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.example.database_project.MainActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate3Binding
 import com.example.database_project.room_db.*
@@ -45,14 +47,6 @@ class CharActivity3 : AppCompatActivity() {
             creationSession.user_class = classChoice
             getStartingCurrency(classChoice)
 
-//            val userDao = RoomAppDB.getAppDatabase(this)?.userDao()
-//
-//            val userEntity = UserEntity(0, "Zac", "123", "lol@email")
-//            val id = userDao?.insertUser(userEntity)
-//
-//            val addressEntity = Address(0, id!!.toInt(), "some address 123", "some city", "some state", "some zip")
-//            userDao?.insertAddress(addressEntity)
-
             val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
 
             val subjectEntity = SubjectEntity(0, creationSession.name)
@@ -69,14 +63,12 @@ class CharActivity3 : AppCompatActivity() {
 
             //Check what's stored
             creationSession.printAllData()
+
+            //Sends user back to start screen
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
-
-     // We need to add functionality to Finish function
-     // val button = findViewById<Button>(R.id.btnFinish)
-     // button.setOnClickListener{
-        //save() or send function to data base
-     // }
-
     }
 
     fun getStartingCurrency(char_class: String) {

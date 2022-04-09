@@ -1,5 +1,7 @@
 package com.example.database_project.char_creator
 
+import com.example.database_project.room_db.AllFourTablesJoined
+
 //Objects in Kotlin only have one memory location, so we can temporarily store data in it
 object creationSession {
     //CharActivity1 data
@@ -17,6 +19,8 @@ object creationSession {
     var user_currency: Double = 0.0
     var faction_reputation: String = ""
     var faction_ideology: String = ""
+
+    lateinit var queryResults: List<AllFourTablesJoined>
 
     fun printAllData(){
         print("Name: $name\n" +
