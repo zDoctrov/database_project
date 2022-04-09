@@ -70,3 +70,9 @@ dependencies {
     // optional - Paging 3 Integration
     implementation "androidx.room:room-paging:2.4.1"
 }
+
+kapt {
+    arguments {
+        arg("room.schemaLocation", "$projectDir/schemas".toString())
+    }
+}

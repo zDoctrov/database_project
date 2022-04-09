@@ -10,10 +10,7 @@ import android.widget.Button
 //import com.demo.roomonetoonedemo.db.UserEntity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate3Binding
-import com.example.database_project.room_db.BuildEntity
-import com.example.database_project.room_db.FactionEntity
-import com.example.database_project.room_db.RoomAppDB
-import com.example.database_project.room_db.SubjectEntity
+import com.example.database_project.room_db.*
 
 class CharActivity3 : AppCompatActivity() {
     private lateinit var binding : CharCreate3Binding
@@ -46,6 +43,7 @@ class CharActivity3 : AppCompatActivity() {
 
             //Save data in session object, so we can deposit all data into the DB at the same time on CharActivity3
             creationSession.user_class = classChoice
+            getStartingCurrency(classChoice)
 
 //            val userDao = RoomAppDB.getAppDatabase(this)?.userDao()
 //
@@ -66,6 +64,9 @@ class CharActivity3 : AppCompatActivity() {
             val factionEntity = FactionEntity(0, id!!.toInt(), creationSession.faction_reputation, creationSession.faction_ideology)
             characterDao?.insertFaction(factionEntity)
 
+            val classEntity = ClassEntity(0, id!!.toInt(), creationSession.user_class, creationSession.user_currency)
+            characterDao?.insertClass(classEntity)
+
             //Check what's stored
             creationSession.printAllData()
         }
@@ -76,6 +77,26 @@ class CharActivity3 : AppCompatActivity() {
         //save() or send function to data base
      // }
 
+    }
+
+    fun getStartingCurrency(char_class: String) {
+        when(char_class){
+            "Noble"->{
+                creationSession.user_currency = 100.0
+            }
+            "Brigand"->{
+                creationSession.user_currency = 50.0
+            }
+            "Merchant"->{
+                creationSession.user_currency = 20.0
+            }
+            "Commoner"->{
+                creationSession.user_currency = 5.0
+            }
+            "Peasant"->{
+                creationSession.user_currency = -10.0
+            }
+        }
     }
 
 }

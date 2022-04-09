@@ -14,6 +14,7 @@ object creationSession {
 
     //CharActivity3 data
     var user_class: String = ""
+    var user_currency: Double = 0.0
     var faction_reputation: String = ""
     var faction_ideology: String = ""
 
@@ -24,6 +25,11 @@ object creationSession {
                 "Hair: $hair\n" +
                 "Ears: $ears\n" +
                 "Eyes: $eyes\n" +
-                "Class: $user_class\n")
+                "Class: $user_class\n\n" +
+
+                "Currency: $user_currency\n" +
+                "Reputation: $faction_reputation\n" +
+                "Ideology: $faction_ideology\n"
+        )
     }
 }

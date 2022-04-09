@@ -41,7 +41,6 @@ data class FactionEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "f
                         @ColumnInfo(name = "ideology") val ideology: String
                         )//end FactionEntity
 
-
 @Entity(tableName = "class",
     foreignKeys = arrayOf(
         ForeignKey(entity = SubjectEntity::class,
@@ -51,9 +50,11 @@ data class FactionEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "f
     )//end foreignKeys
 )//end faction table
 
-data class StatusEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "class_id") val class_id: Int,
+data class ClassEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "class_id") val class_id: Int,
                           @ColumnInfo(name = "subject_id") val id: Int,
-                          @ColumnInfo(name = "credit") val credit: String
+                          @ColumnInfo(name = "class_name") val class_name: String,
+                          @ColumnInfo(name = "currency") val currency: Double
+
 )//end StatusEntity
 
 
