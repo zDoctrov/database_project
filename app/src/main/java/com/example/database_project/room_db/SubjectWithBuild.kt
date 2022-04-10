@@ -8,7 +8,7 @@ import androidx.room.Transaction
 data class SubjectWithBuild(var id: String, var name: String, var race: String, var hair: String, var ears: String, var eyes: String)
 
 //Contains all of the unique data within the database
-data class AllFourTablesJoined(var id: String, var name: String,                                        //Subject
+data class AllFourTablesJoined(var id: Int, var name: String,                                        //Subject
                                var race: String, var hair: String, var ears: String, var eyes: String,  //Build
                                var faction_name: String, var reputation: String, var ideology: String,  //Faction
                                var class_name: String, var currency: Double                             //Class

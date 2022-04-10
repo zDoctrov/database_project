@@ -1,8 +1,7 @@
 package com.example.database_project.room_db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 
 //The Dao (Data Access Object) interface contains all queries to the database
 @Dao
@@ -19,7 +18,7 @@ interface CharacterDao {
     @Insert
     fun insertClass(char_class: ClassEntity)
 
-    //Query Type #2: SELECT
+    //Query Type #2: SELECT (Static)
     //  This is the default query ran when no search filters are placed, resulting in a selection of EVERY character
     //  *Note that "inner join" removes Foreign Keys that aren't present in all tables (Pretty much entries entered before the addition of later tables)
     @Query("SELECT *" +
@@ -29,6 +28,12 @@ interface CharacterDao {
             " inner join class on subject.id = class.subject_id"
     )
     fun getAllFourTablesJoined(): List<AllFourTablesJoined>?
+
+//    //Use "@RawQuery" to use variables within your query that allows you to filter the results
+//    @RawQuery
+//    fun getBooks(query: SupportSQLiteQuery?): List<AllFourTablesJoined>?
+
+
 
 //    //Gets data from both the Subject table and Build table
 //    @Query("SELECT * FROM subject inner join build on subject.id = build.subject_id")
@@ -41,4 +46,6 @@ interface CharacterDao {
     //Query Type #3: Update
 
     //Query Type #4: Delete
+    @Query("DELETE FROM subject WHERE id = :subject_id")
+    fun delete(subject_id: Int?)
 }

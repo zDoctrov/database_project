@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="88dp"
         android:backgroundTint="@color/create_green"
         android:text="Continue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,12 +118,10 @@
         android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="136dp"
         android:backgroundTint="@color/danger_red"
         android:text="Back"
-        app:layout_constraintEnd_toStartOf="@+id/continueBtn"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewFaction" />
 </androidx.constraintlayout.widget.ConstraintLayout>
