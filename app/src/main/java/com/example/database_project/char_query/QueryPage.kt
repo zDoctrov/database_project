@@ -52,9 +52,17 @@ class QueryPage : AppCompatActivity() {
 
         val searchButton = findViewById<Button>(R.id.searchBtn)
         searchButton.setOnClickListener{
-            //Read Data from database
+            //Read Data from database, with or without filtering
             val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
-            creationSession.queryResults = characterDao?.getAllFourTablesJoined()!!
+            creationSession.queryResults = characterDao?.getFilteredFourTablesJoined(
+                binding.nameSearch.query.toString().trim(),
+                if(binding.spinnerRace2.selectedItem.toString() == "-") null else binding.spinnerRace2.selectedItem.toString(),
+                if(binding.spinnerFaction2.selectedItem.toString() == "-") null else binding.spinnerFaction2.selectedItem.toString(),
+                if(binding.spinnerHair2.selectedItem.toString() == "-") null else binding.spinnerHair2.selectedItem.toString(),
+                if(binding.spinnerEars2.selectedItem.toString() == "-") null else binding.spinnerEars2.selectedItem.toString(),
+                if(binding.spinnerEyes2.selectedItem.toString() == "-") null else binding.spinnerEyes2.selectedItem.toString(),
+                if(binding.spinnerClass2.selectedItem.toString() == "-") null else binding.spinnerClass2.selectedItem.toString()
+            )!!
 
             println("Number of Results: ${creationSession.queryResults.size}\n")
 

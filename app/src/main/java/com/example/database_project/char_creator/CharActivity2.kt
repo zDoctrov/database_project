@@ -24,15 +24,15 @@ class CharActivity2 : AppCompatActivity() {
 
         //Setup ArrayAdapters for the data used inside the spinners
         val hairList = res.getStringArray(R.array.hair)
-        val hairArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hairList)
+        val hairArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, hairList)
         binding.spinnerHair.adapter = hairArrayAdapter
 
         val earList = res.getStringArray(R.array.ears)
-        val earArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, earList)
+        val earArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, earList)
         binding.spinnerEars.adapter = earArrayAdapter
 
         val eyeList = res.getStringArray(R.array.eyes)
-        val eyeArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, eyeList)
+        val eyeArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, eyeList)
         binding.spinnerEyes.adapter = eyeArrayAdapter
 
         //why are we calling finish here

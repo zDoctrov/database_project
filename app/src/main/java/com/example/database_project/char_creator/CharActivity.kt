@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate1Binding
+import com.google.android.material.snackbar.Snackbar
 
 
 class CharActivity : AppCompatActivity() {
@@ -29,11 +30,11 @@ class CharActivity : AppCompatActivity() {
 
         //Setup ArrayAdapters for the data used inside the spinners
         val raceList = res.getStringArray(R.array.races)
-        val raceArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, raceList)
+        val raceArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, raceList)
         binding.spinnerRace.adapter = raceArrayAdapter
 
         val factionList = res.getStringArray(R.array.factions)
-        val factionArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, factionList)
+        val factionArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
 
         val backButton = findViewById<Button>(R.id.backBtn)
@@ -42,13 +43,12 @@ class CharActivity : AppCompatActivity() {
         }
 
         val continueButton = findViewById<Button>(R.id.continueBtn)
-        continueButton.setOnClickListener{
+        continueButton.setOnClickListener{ view ->
             //Get user inputs from layout
             var nameChoice: String = binding.userInputName.text.toString()
             val raceChoice = binding.spinnerRace.selectedItem.toString()
             val factionChoice = binding.spinnerFaction.selectedItem.toString()
 
-            //TODO: Throw error if user doesn't type in a name and leaves nameChoice blank
 
             //Save data in session object, so we can deposit all data into the DB at the same time on CharActivity3
             creationSession.name = nameChoice
@@ -59,8 +59,15 @@ class CharActivity : AppCompatActivity() {
             //Check what's stored
             creationSession.printAllData()
 
-            val intent = Intent(this, CharActivity2::class.java)
-            startActivity(intent)
+            //Throw error if the user doesn't input any data for name
+            if(creationSession.name.trim() == "")
+            {
+                Snackbar.make(view, "Enter a name for your creation!", Snackbar.LENGTH_LONG).show()
+            }
+            else{
+                val intent = Intent(this, CharActivity2::class.java)
+                startActivity(intent)
+            }
         }
 
         //binding.userInputName ????

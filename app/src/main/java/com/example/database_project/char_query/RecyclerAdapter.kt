@@ -1,6 +1,7 @@
 package com.example.database_project
 
 import android.content.Intent
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.text.bold
+import androidx.core.text.underline
 import androidx.recyclerview.widget.RecyclerView
 import com.example.database_project.char_creator.CharActivity3
 import com.example.database_project.char_creator.creationSession
@@ -34,20 +37,22 @@ class RecyclerAdapter(
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var itemImage : ImageView
         var charName : TextView
+        var charClass : TextView
         var charRace : TextView
         var charFaction : TextView
 
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             charName = itemView.findViewById(R.id.characterName)
+            charClass = itemView.findViewById(R.id.characterClass)
             charRace = itemView.findViewById(R.id.characterRace)
             charFaction = itemView.findViewById(R.id.characterFaction)
 
             itemView.setOnClickListener {v : View ->
                 var position : Int = getAdapterPosition()
 
-                Snackbar.make(v, "Click detected on item $position",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+//                Snackbar.make(v, "Click detected on item $position",
+//                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
                 //Interface allows us to use any passed Activity as the owner
                 //  If statement to prevent deleted items from being clicked (Just in case)
@@ -68,9 +73,22 @@ class RecyclerAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerAdapter.ViewHolder, position: Int) {
-        viewHolder.charName.text = "Name: " + creationSession.queryResults[position].name
-        viewHolder.charRace.text = "Race: " + creationSession.queryResults[position].race
-        viewHolder.charFaction.text = "Faction: " + creationSession.queryResults[position].faction_name
+        viewHolder.charName.text = SpannableStringBuilder()
+            .underline {  bold{ append("Name") }  }
+            .bold{append(":")}
+            .append(" " + creationSession.queryResults[position].name)
+
+        viewHolder.charRace.text =  SpannableStringBuilder()
+            .bold{append("Race: ")}
+            .append(creationSession.queryResults[position].race)
+
+        viewHolder.charClass.text = SpannableStringBuilder()
+            .bold{append("Class: ")}
+            .append(creationSession.queryResults[position].class_name)
+
+        viewHolder.charFaction.text = SpannableStringBuilder()
+            .bold{append("Faction: ")}
+            .append(creationSession.queryResults[position].faction_name)
 
         //TODO: Image profiles for each character
         viewHolder.itemImage.setImageResource(R.drawable.android_image_1)

@@ -38,7 +38,6 @@
             android:id="@+id/characterRace"
             android:layout_width="236dp"
             android:layout_height="30dp"
-            android:layout_marginTop="9dp"
             app:layout_constraintStart_toStartOf="@+id/characterName"
             app:layout_constraintTop_toBottomOf="@+id/characterName" />
 
@@ -47,14 +46,23 @@
             android:layout_width="236dp"
             android:layout_height="30dp"
             app:layout_constraintStart_toStartOf="@+id/characterName"
+            app:layout_constraintTop_toBottomOf="@+id/characterClass" />
+
+        <TextView
+            android:id="@+id/characterClass"
+            android:layout_width="236dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="@+id/characterName"
             app:layout_constraintTop_toBottomOf="@+id/characterRace" />
 
         <ImageView
             android:id="@+id/itemImage"
-            android:layout_width="109dp"
-            android:layout_height="109dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/characterFaction"
+            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/characterName" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

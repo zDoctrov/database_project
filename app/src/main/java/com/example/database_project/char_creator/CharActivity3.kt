@@ -3,13 +3,17 @@ package com.example.database_project.char_creator
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.MainActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate3Binding
 import com.example.database_project.room_db.*
+
 
 class CharActivity3 : AppCompatActivity() {
     private lateinit var binding : CharCreate3Binding
@@ -25,9 +29,25 @@ class CharActivity3 : AppCompatActivity() {
 
         //Setup ArrayAdapters for the data used inside the spinners
         val classList = res.getStringArray(R.array.user_class)
-        val classArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, classList)
+        val classArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, classList)
         binding.spinnerClass.adapter = classArrayAdapter
 
+        binding.spinnerClass.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                // your code here
+                getStartingCurrency(binding.spinnerClass.selectedItem.toString())
+                binding.actualCreditValue.text = creationSession.user_currency.toString()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // your code here
+            }
+        })
 
     val backButton = findViewById<Button>(R.id.back3Btn)
     backButton.setOnClickListener{
@@ -60,6 +80,12 @@ class CharActivity3 : AppCompatActivity() {
 
             //Check what's stored
             creationSession.printAllData()
+
+            //Reset Session Data
+            creationSession.resetAttributes()
+
+            //"Creation Successful" message
+            Toast.makeText(this, "Character Added to Database!", Toast.LENGTH_SHORT).show()
 
             //Sends user back to start screen
             val intent = Intent(applicationContext, MainActivity::class.java)

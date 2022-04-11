@@ -12,15 +12,16 @@
         <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/char_create_3.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/lukeb/Documents/CIS 421/database_project/app/src/main/res/layout/intro_page.xml" value="0.1526268115942029" />
         <entry key="app/src/main/res/layout/activity_char_creator1.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_instance_result_page.xml" value="0.5680806477864584" />
+        <entry key="app/src/main/res/layout/activity_instance_result_page.xml" value="0.7110524495442707" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2209126790364583" />
         <entry key="app/src/main/res/layout/activity_query_page.xml" value="0.40975087483723965" />
         <entry key="app/src/main/res/layout/activity_query_search_results.xml" value="0.12083333333333333" />
-        <entry key="app/src/main/res/layout/card_layout.xml" value="0.5365435450835836" />
+        <entry key="app/src/main/res/layout/card_layout.xml" value="0.7959841578765524" />
         <entry key="app/src/main/res/layout/char_create_1.xml" value="0.5189595540364584" />
         <entry key="app/src/main/res/layout/char_create_2.xml" value="0.5277379353841146" />
         <entry key="app/src/main/res/layout/char_create_3.xml" value="0.5856709798177083" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.17083333333333334" />
+        <entry key="app/src/main/res/layout/custom_spinner_item.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/intro_page.xml" value="0.367104859283005" />
       </map>
     </option>

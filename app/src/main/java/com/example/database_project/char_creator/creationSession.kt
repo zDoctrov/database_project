@@ -36,4 +36,24 @@ object creationSession {
                 "Ideology: $faction_ideology\n"
         )
     }
+
+    fun resetAttributes(){
+        //CharActivity1 data
+        name = ""
+        race = ""
+        faction = ""
+
+        //CharActivity2 data
+        hair = ""
+        ears = ""
+        eyes = ""
+
+        //CharActivity3 data
+        user_class = ""
+        user_currency = 0.0
+        faction_reputation = ""
+        faction_ideology = ""
+
+        queryResults = listOf()
+    }
 }

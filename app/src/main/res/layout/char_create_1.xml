@@ -9,9 +9,10 @@
         android:id="@+id/textViewOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Choose your origin"
-        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:text="Choose Your Origin"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +32,11 @@
     <EditText
         android:id="@+id/userInputName"
         android:layout_width="239dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter Character Name Here"
         android:inputType="textPersonName"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewName" />
@@ -44,7 +45,7 @@
         android:id="@+id/textViewRace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Race"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,10 +54,10 @@
 
     <Spinner
         android:id="@+id/spinnerRace"
-        android:layout_width="209dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
         android:scrollbarSize="22sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRace" />
@@ -107,9 +108,8 @@
 
     <Spinner
         android:id="@+id/spinnerFaction"
-        android:layout_width="209dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="9dp"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
