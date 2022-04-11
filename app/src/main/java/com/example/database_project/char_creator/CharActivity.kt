@@ -49,7 +49,6 @@ class CharActivity : AppCompatActivity() {
             val raceChoice = binding.spinnerRace.selectedItem.toString()
             val factionChoice = binding.spinnerFaction.selectedItem.toString()
 
-            //TODO: Throw error if user doesn't type in a name and leaves nameChoice blank
 
             //Save data in session object, so we can deposit all data into the DB at the same time on CharActivity3
             creationSession.name = nameChoice

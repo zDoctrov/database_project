@@ -27,21 +27,42 @@ interface CharacterDao {
             " inner join faction on subject.id = faction.subject_id" +
             " inner join class on subject.id = class.subject_id"
     )
-    fun getAllFourTablesJoined(): List<AllFourTablesJoined>?
+    fun getAllFourTablesJoined(): List<AllFourTablesJoined>?    //No Filters
 
-//    //Use "@RawQuery" to use variables within your query that allows you to filter the results
-//    @RawQuery
-//    fun getBooks(query: SupportSQLiteQuery?): List<AllFourTablesJoined>?
+    //Filtered Version: Parameters are 'NULL' if user doesn't set a value for filtering
+    @Query("""
+        SELECT * FROM subject
+        inner join build on subject.id = build.subject_id
+        inner join faction on subject.id = faction.subject_id
+        inner join class on subject.id = class.subject_id
+        WHERE
+        (:name IS NULL OR name LIKE '%' || :name || '%') AND
+        (:race IS NULL OR race LIKE '%' || :race || '%') AND
+        (:faction_name IS NULL OR faction_name LIKE '%' || :faction_name || '%') AND
+        (:hair IS NULL OR hair LIKE '%' || :hair || '%') AND
+        (:ears IS NULL OR ears LIKE '%' || :ears || '%') AND
+        (:eyes IS NULL OR eyes LIKE '%' || :eyes || '%') AND
+        (:class_name IS NULL OR class_name LIKE '%' || :class_name || '%')
+    """)
+    fun getFilteredFourTablesJoined(name: String?,
+                                    race: String?,
+                                    faction_name: String?,
+                                    hair: String?,
+                                    ears: String?,
+                                    eyes: String?,
+                                    class_name: String?
+                                    ): List<AllFourTablesJoined>?    //No Filters
 
+//    var name: String?,
+//    var race: String?,
+//    var faction_name: String?,
 
+//    var hair: String?,
+//    var ears: String?,
+//    var eyes: String?,
 
-//    //Gets data from both the Subject table and Build table
-//    @Query("SELECT * FROM subject inner join build on subject.id = build.subject_id")
-//    fun getSubjectWithBuild(): List<SubjectWithBuild>?
-//
-//    //Only returns data from the Subject table (Simple query)
-//    @Query("SELECT * FROM subject ORDER BY id desc")
-//    fun getSubjectData(): List<SubjectEntity>?      //Returns a list of SubjectEntity type
+//    var class_name: String?,
+
 
     //Query Type #3: Update
 
