@@ -29,7 +29,7 @@ class CharActivity3 : AppCompatActivity() {
 
         //Setup ArrayAdapters for the data used inside the spinners
         val classList = res.getStringArray(R.array.user_class)
-        val classArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, classList)
+        val classArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, classList)
         binding.spinnerClass.adapter = classArrayAdapter
 
         binding.spinnerClass.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {

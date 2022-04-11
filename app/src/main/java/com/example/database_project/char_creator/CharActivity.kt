@@ -30,11 +30,11 @@ class CharActivity : AppCompatActivity() {
 
         //Setup ArrayAdapters for the data used inside the spinners
         val raceList = res.getStringArray(R.array.races)
-        val raceArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, raceList)
+        val raceArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, raceList)
         binding.spinnerRace.adapter = raceArrayAdapter
 
         val factionList = res.getStringArray(R.array.factions)
-        val factionArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, factionList)
+        val factionArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
 
         val backButton = findViewById<Button>(R.id.backBtn)
