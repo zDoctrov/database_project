@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate1Binding
+import com.google.android.material.snackbar.Snackbar
 
 
 class CharActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class CharActivity : AppCompatActivity() {
         }
 
         val continueButton = findViewById<Button>(R.id.continueBtn)
-        continueButton.setOnClickListener{
+        continueButton.setOnClickListener{ view ->
             //Get user inputs from layout
             var nameChoice: String = binding.userInputName.text.toString()
             val raceChoice = binding.spinnerRace.selectedItem.toString()
@@ -59,8 +60,15 @@ class CharActivity : AppCompatActivity() {
             //Check what's stored
             creationSession.printAllData()
 
-            val intent = Intent(this, CharActivity2::class.java)
-            startActivity(intent)
+            //Throw error if the user doesn't input any data for name
+            if(creationSession.name.trim() == "")
+            {
+                Snackbar.make(view, "Enter a name for your creation!", Snackbar.LENGTH_LONG).show()
+            }
+            else{
+                val intent = Intent(this, CharActivity2::class.java)
+                startActivity(intent)
+            }
         }
 
         //binding.userInputName ????
