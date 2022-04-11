@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.MainActivity
 import com.example.database_project.R
@@ -82,6 +83,9 @@ class CharActivity3 : AppCompatActivity() {
 
             //Reset Session Data
             creationSession.resetAttributes()
+
+            //"Creation Successful" message
+            Toast.makeText(this, "Character Added to Database!", Toast.LENGTH_SHORT).show()
 
             //Sends user back to start screen
             val intent = Intent(applicationContext, MainActivity::class.java)
