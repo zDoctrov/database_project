@@ -34,12 +34,14 @@ class RecyclerAdapter(
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var itemImage : ImageView
         var charName : TextView
+        var charClass : TextView
         var charRace : TextView
         var charFaction : TextView
 
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             charName = itemView.findViewById(R.id.characterName)
+            charClass = itemView.findViewById(R.id.characterClass)
             charRace = itemView.findViewById(R.id.characterRace)
             charFaction = itemView.findViewById(R.id.characterFaction)
 
@@ -69,6 +71,7 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(viewHolder: RecyclerAdapter.ViewHolder, position: Int) {
         viewHolder.charName.text = "Name: " + creationSession.queryResults[position].name
+        viewHolder.charClass.text = "Class: " + creationSession.queryResults[position].class_name
         viewHolder.charRace.text = "Race: " + creationSession.queryResults[position].race
         viewHolder.charFaction.text = "Faction: " + creationSession.queryResults[position].faction_name
 
