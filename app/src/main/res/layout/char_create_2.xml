@@ -33,46 +33,73 @@
         android:id="@+id/textViewHair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="100dp"
         android:text="Hair"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Spinner
-        android:id="@+id/spinnerHair"
+        android:id="@+id/spinnerEars"
         android:layout_width="250dp"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHair" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEars" />
+
+    <Button
+        android:id="@+id/continue2Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="68dp"
+        android:backgroundTint="@color/create_green"
+        android:text="Continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEars" />
 
     <TextView
         android:id="@+id/textViewEyes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="180dp"
         android:text="Eyes"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerHair" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Spinner
         android:id="@+id/spinnerEyes"
         android:layout_width="250dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEyes" />
+
+    <Button
+        android:id="@+id/back2Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/danger_red"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEars" />
 
     <TextView
         android:id="@+id/textViewEars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Ears"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,32 +108,13 @@
         app:layout_constraintTop_toBottomOf="@+id/spinnerEyes" />
 
     <Spinner
-        android:id="@+id/spinnerEars"
+        android:id="@+id/spinnerHair"
         android:layout_width="250dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEars" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHair" />
 
-    <Button
-        android:id="@+id/continue2Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="68dp"
-        android:backgroundTint="@color/create_green"
-        android:text="Continue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEars" />
-
-    <Button
-        android:id="@+id/back2Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
-        android:backgroundTint="@color/danger_red"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

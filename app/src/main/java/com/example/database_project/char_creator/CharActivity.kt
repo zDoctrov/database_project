@@ -4,9 +4,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.R
 import com.example.database_project.databinding.CharCreate1Binding
@@ -36,6 +34,92 @@ class CharActivity : AppCompatActivity() {
         val factionList = res.getStringArray(R.array.factions)
         val factionArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
+
+        // Start of race image appearing when spinner selects it
+
+        val img = findViewById<ImageView>(R.id.imageViewRace)
+        img.layoutParams = LinearLayout.LayoutParams(186, 269)
+
+        val imgResId1 = R.drawable.human // blank human image
+        val imgResId2 = R.drawable.dwarf // blank dwarf image
+        val imgResId3 = R.drawable.elf // blank elf image
+
+
+        binding.spinnerRace.onItemSelectedListener = object :
+
+
+            AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                img.x = 540F - (img.width / 2)
+                img.y = 600F + (img.height / 2)
+                when {
+                    binding.spinnerRace.selectedItem.toString() == "Human" -> {
+                        img.setImageResource(imgResId1)
+                    }
+                    binding.spinnerRace.selectedItem.toString() == "Dwarf" -> {
+                        img.setImageResource(imgResId2)
+                    }
+                    binding.spinnerRace.selectedItem.toString() == "Elf" -> {
+                        img.setImageResource(imgResId3)
+                    }
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                img.setImageResource(imgResId1) // never uses this, just requires something here
+            }
+
+        }
+
+        // End of race image appearing when spinner selects it
+
+        // Start of faction image appearing when spinner selects it
+
+        val img2 = findViewById<ImageView>(R.id.imageViewFaction)
+        img2.layoutParams = LinearLayout.LayoutParams(240, 300)
+
+        val imgResId4 = R.drawable.smoke // merchants guild faction image
+        val imgResId5 = R.drawable.tank // free guard faction image
+        val imgResId6 = R.drawable.temple // iron company faction image
+        val imgResId7 = R.drawable.tractor // united scholars faction image
+        val imgResId8 = R.drawable.academic // dastardly deacons faction image
+
+
+        binding.spinnerFaction.onItemSelectedListener = object :
+
+
+            AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                img2.x = 540F - (img2.width / 2)
+                img2.y = 1140F + (img2.height / 2)
+                when {
+                    binding.spinnerFaction.selectedItem.toString() == "Merchants Guild" -> {
+                        img2.setImageResource(imgResId4)
+                    }
+                    binding.spinnerFaction.selectedItem.toString() == "Free Guard" -> {
+                        img2.setImageResource(imgResId5)
+                    }
+                    binding.spinnerFaction.selectedItem.toString() == "Iron Company" -> {
+                        img2.setImageResource(imgResId6)
+                    }
+                    binding.spinnerFaction.selectedItem.toString() == "United Scholars" -> {
+                        img2.setImageResource(imgResId7)
+                    }
+                    binding.spinnerFaction.selectedItem.toString() == "Dastardly Deacons" -> {
+                        img2.setImageResource(imgResId8)
+                    }
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                img2.setImageResource(imgResId4) // never uses this, just requires something here
+            }
+
+        }
+
+        // End of faction image appearing when spinner selects it
+
 
         val backButton = findViewById<Button>(R.id.backBtn)
         backButton.setOnClickListener{
