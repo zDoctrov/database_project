@@ -74,7 +74,7 @@ class CharActivity2 : AppCompatActivity() {
 
         // Start of eyes image appearing when spinner selects it
 
-        val img1 = findViewById<ImageView>(R.id.imageView2)
+        val img1 = findViewById<ImageView>(R.id.imageViewLayer)
         img.layoutParams = LinearLayout.LayoutParams(186, 269)
 
         val imgResIdEyes1 = R.drawable.eyes_round //this is the wide eyes
@@ -89,17 +89,17 @@ class CharActivity2 : AppCompatActivity() {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 //needs to figure out layering constraints
-                img1.x = 540F - (img.width / 2)
-                img1.y = 60F + (img.height / 2)
+                img1.x = 540F - (img1.width / 2)
+                img1.y = 60F + (img1.height / 2)
                 when {
                     binding.spinnerEyes.selectedItem.toString() == "Wide" -> {
-                        img.setImageResource(imgResIdEyes1)
+                        img1.setImageResource(imgResIdEyes1)
                     }
                     binding.spinnerEyes.selectedItem.toString() == "Squinted" -> {
-                        img.setImageResource(imgResIdEyes2)
+                        img1.setImageResource(imgResIdEyes2)
                     }
                     binding.spinnerEyes.selectedItem.toString() == "Lazy" -> {
-                        img.setImageResource(imgResIdEyes3)
+                        img1.setImageResource(imgResIdEyes3)
                     }
                 }
             }
@@ -118,7 +118,7 @@ class CharActivity2 : AppCompatActivity() {
 
         // Start of eyes image appearing when spinner selects it
 
-        val img2 = findViewById<ImageView>(R.id.imageView2)
+        val img2 = findViewById<ImageView>(R.id.imageViewLayer2)
         img.layoutParams = LinearLayout.LayoutParams(186, 269)
 
         val imgResIdEars1 = R.drawable.ears_round
@@ -133,17 +133,17 @@ class CharActivity2 : AppCompatActivity() {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 //needs to figure out layering constraints
-                img2.x = 540F - (img.width / 2)
-                img2.y = 60F + (img.height / 2)
+                img2.x = 540F - (img2.width / 2)
+                img2.y = 60F + (img2.height / 2)
                 when {
                     binding.spinnerEars.selectedItem.toString() == "Round" -> {
-                        img.setImageResource(imgResIdEars1)
+                        img2.setImageResource(imgResIdEars1)
                     }
                     binding.spinnerEars.selectedItem.toString() == "Pointed" -> {
-                        img.setImageResource(imgResIdEars2)
+                        img2.setImageResource(imgResIdEars2)
                     }
                     binding.spinnerEars.selectedItem.toString() == "Square" -> {
-                        img.setImageResource(imgResIdEars3)
+                        img2.setImageResource(imgResIdEars3)
                     }
                 }
             }
