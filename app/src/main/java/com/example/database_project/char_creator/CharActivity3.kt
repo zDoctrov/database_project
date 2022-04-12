@@ -46,6 +46,7 @@ class CharActivity3 : AppCompatActivity() {
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
                 // your code here
+                // slight change to push
             }
         })
 
