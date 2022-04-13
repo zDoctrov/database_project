@@ -153,7 +153,7 @@ class CharActivity2 : AppCompatActivity() {
         img2.layoutParams = LinearLayout.LayoutParams(600, 900)
         img2.x = 230F - (img2.width / 2)
 
-        val imgResId4 = R.drawable.hair_long1 // long hair image
+        val imgResId4 = R.drawable.hair_long // long hair image
         val imgResId5 = R.drawable.hair_short // short hair image
         val imgResId6 = R.drawable.hair_fuzzy // fuzzy hair image
 
