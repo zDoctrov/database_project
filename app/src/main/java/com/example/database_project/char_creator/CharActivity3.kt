@@ -4,10 +4,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.database_project.MainActivity
 import com.example.database_project.R
@@ -38,13 +35,19 @@ class CharActivity3 : AppCompatActivity() {
         var imageResId3 = resources.getIdentifier(imageNameEyes, "drawable", packageName)
         var imageResId4 = resources.getIdentifier(imageNameEars, "drawable", packageName)
 
-
-
+        binding.imageView3.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView3.x = 230F
+        binding.imageView8.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView8.x = 230F
+        binding.imageView9.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView9.x = 230F
+        binding.imageView10.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView10.x = 230F
 
         binding.imageView3.setImageResource(imageResId1)
-        binding.imageView8.setImageResource(imageResId2)
+        binding.imageView10.setImageResource(imageResId2)
         binding.imageView9.setImageResource(imageResId3)
-        binding.imageView10.setImageResource(imageResId4)
+        binding.imageView8.setImageResource(imageResId4)
 
 
 

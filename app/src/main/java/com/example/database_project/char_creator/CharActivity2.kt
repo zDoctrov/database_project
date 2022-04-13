@@ -25,19 +25,30 @@ class CharActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
         var imageName = "@drawable/" +creationSession.setRaceImage(creationSession.race)
+        var imageNameHair = "@drawable/" +creationSession.setHairImage(creationSession.hair)
+        var imageNameEyes = "@drawable/" +creationSession.setEyesImage(creationSession.eyes)
+        var imageNameEars = "@drawable/" +creationSession.setEarsImage(creationSession.ears)
 
         var imageResId1= resources.getIdentifier(imageName, "drawable", packageName)
-
-        //this is for sending the images to Characvivity 3
-        var ImageResId2= resources.getIdentifier(imageName, "drawable", packageName)
-        var imageResId3 = resources.getIdentifier(imageName, "drawable", packageName)
-       var ImageResId4 = resources.getIdentifier(imageName, "drawable", packageName)
+        var imageResId2= resources.getIdentifier(imageNameHair, "drawable", packageName)
+        var imageResId3 = resources.getIdentifier(imageNameEyes, "drawable", packageName)
+        var imageResId4 = resources.getIdentifier(imageNameEars, "drawable", packageName)
 
 
+        binding.imageView2.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView2.x = 230F
+        /*binding.imageView5.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView5.x = 230F
+        binding.imageView6.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView6.x = 230F
+        binding.imageView7.layoutParams = LinearLayout.LayoutParams(600, 900)
+        binding.imageView7.x = 230F*/
 
 
         binding.imageView2.setImageResource(imageResId1)
-
+        binding.imageView5.setImageResource(imageResId3)
+        binding.imageView6.setImageResource(imageResId4)
+        binding.imageView7.setImageResource(imageResId2)
 
 
 
@@ -90,9 +101,9 @@ class CharActivity2 : AppCompatActivity() {
         img3.layoutParams = LinearLayout.LayoutParams(600, 900)
         img3.x = 230F - (img3.width / 2)
 
-        val imgResId7 = R.drawable.eyes_round // long hair image
-        val imgResId8 = R.drawable.eyes_squinted // short hair image
-        val imgResId9 = R.drawable.eyes_lazy // fuzzy hair image
+        val imgResId7 = R.drawable.eyes_round // round eyes image
+        val imgResId8 = R.drawable.eyes_squinted // squinted eyes image
+        val imgResId9 = R.drawable.eyes_lazy // lazy eyes image
 
 
         binding.spinnerEyes.onItemSelectedListener = object :

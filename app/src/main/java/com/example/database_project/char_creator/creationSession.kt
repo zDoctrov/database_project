@@ -58,6 +58,7 @@ object creationSession {
     }
 
     fun setRaceImage(race: String): String{
+
         when(race){
             "Human" -> {
                 return "race_human"
@@ -72,8 +73,8 @@ object creationSession {
         return "nft_monkey"
     }//end setRaceImage
 
-    fun setHairImage(Hair: String): String{
-        when(Hair){
+    fun setHairImage(hair: String): String{
+        when(hair){
             "Long" -> {
                 return "hair_long"
             }
@@ -100,7 +101,7 @@ object creationSession {
             }
         }//end when()
         return "nft_monkey"
-    }//end setEyesImage
+    }//end setRaceImage
 
 
     fun setEarsImage(ear: String): String{
@@ -116,7 +117,7 @@ object creationSession {
             }
         }//end when()
         return "nft_monkey"
-    }//end setEarsImage
+    }//end setRaceImage
 
 
 
