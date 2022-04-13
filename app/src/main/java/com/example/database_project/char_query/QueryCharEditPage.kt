@@ -13,6 +13,7 @@ import com.example.database_project.databinding.QueryCharEditPageBinding
 import com.example.database_project.room_db.RoomAppDB
 
 class QueryCharEditPage: AppCompatActivity() {
+
     private lateinit var binding: QueryCharEditPageBinding
     //Set up binding, so you can reference the ID's of things on this activity's layout
 
@@ -37,5 +38,7 @@ class QueryCharEditPage: AppCompatActivity() {
         homeButton.setOnClickListener {
             finish()
         }
+
+
     }
 }
