@@ -12,7 +12,7 @@ import com.example.database_project.databinding.ActivityInstanceResultPageBindin
 import com.example.database_project.databinding.CharCreate1Binding
 import com.example.database_project.room_db.RoomAppDB
 
-class InstanceResultPage : AppCompatActivity() {
+class InstanceResultPage() : AppCompatActivity() {
     private lateinit var binding : ActivityInstanceResultPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,6 @@ class InstanceResultPage : AppCompatActivity() {
         binding.actualClassId.text = creationSession.queryResults[position].class_name
         binding.actualCreditsId.text = creationSession.queryResults[position].currency.toString()
 
-
         binding.btnDeleteCharacter.setOnClickListener(){
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Are you sure?")
@@ -41,11 +40,13 @@ class InstanceResultPage : AppCompatActivity() {
                 val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
                 characterDao?.delete(creationSession.queryResults[position].id)
 
+                val deleteIntent = Intent(this, QuerySearchResults::class.java)
+                    .putExtra("position", position)
+                setResult(RESULT_OK, deleteIntent)
 
                 finish()
             }
             builder.setNegativeButton("No") { _: DialogInterface, i: Int ->
-
             }
             builder.show()
         }
