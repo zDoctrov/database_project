@@ -157,8 +157,8 @@ class CharActivity2 : AppCompatActivity() {
         val imgResId5 = R.drawable.hair_short // short hair image
         val imgResId6 = R.drawable.hair_fuzzy // fuzzy hair image
 
-
         binding.spinnerHair.onItemSelectedListener = object :
+
 
 
             AdapterView.OnItemSelectedListener {
