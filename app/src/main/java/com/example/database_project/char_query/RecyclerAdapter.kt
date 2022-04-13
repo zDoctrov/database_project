@@ -79,7 +79,7 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
             .append(mutableQueryResults[position].faction_name)
 
         //TODO: Image profiles for each character
-        viewHolder.itemImage.setImageResource(R.drawable.android_image_1)
+        viewHolder.itemImage.setImageResource(R.drawable.nft_monkey)
     }
 
     fun deleteCharItem(pos: Int){
