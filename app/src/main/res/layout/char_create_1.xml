@@ -77,12 +77,12 @@
         android:id="@+id/textViewFaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="160dp"
         android:text="Faction"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewRace" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRace" />
 
     <ImageView
         android:id="@+id/imageViewFaction"
@@ -99,12 +99,12 @@
         android:id="@+id/continueBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="88dp"
         android:backgroundTint="@color/create_green"
         android:text="Continue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFaction" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
 
     <Spinner
         android:id="@+id/spinnerFaction"
@@ -119,9 +119,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="170dp"
         android:backgroundTint="@color/danger_red"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFaction" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
 </androidx.constraintlayout.widget.ConstraintLayout>

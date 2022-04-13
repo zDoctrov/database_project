@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
 //        var helper = MyHelper(applicationContext)
 //        var db = helper.readableDatabase
 
+       /* var helper = DatabaseHandler(applicationContext)
+        var db = helper.readableDatabase*/
+
         val button = findViewById<Button>(R.id.CreateCharacterbtn)
 
         button.setOnClickListener{

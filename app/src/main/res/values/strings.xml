@@ -30,7 +30,7 @@
     </string-array>
 
     <string-array name="eyes">
-        <item>Wide</item>
+        <item>Round</item>
         <item>Squinted</item>
         <item>Lazy</item>
     </string-array>
@@ -78,7 +78,7 @@
 
     <string-array name="eyes_empty">
         <item>-</item>
-        <item>Wide</item>
+        <item>Round</item>
         <item>Squinted</item>
         <item>Lazy</item>
     </string-array>
