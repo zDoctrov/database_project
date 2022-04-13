@@ -52,10 +52,7 @@ class InstanceResultPage() : AppCompatActivity() {
         }
 
         binding.btnEditCharacter.setOnClickListener(){
-            val intent = Intent(this, QueryCharEditPage::class.java)
-                .putExtra("position", position)
 
-            startActivity(intent)
         }
 
         binding.btnHome.setOnClickListener(){
