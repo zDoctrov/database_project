@@ -100,7 +100,7 @@ object creationSession {
             }
         }//end when()
         return "nft_monkey"
-    }//end setRaceImage
+    }//end setEyesImage
 
 
     fun setEarsImage(ear: String): String{
@@ -116,7 +116,7 @@ object creationSession {
             }
         }//end when()
         return "nft_monkey"
-    }//end setRaceImage
+    }//end setEarsImage
 
 
 
