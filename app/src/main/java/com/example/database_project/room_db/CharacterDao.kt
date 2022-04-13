@@ -1,7 +1,8 @@
 package com.example.database_project.room_db
 
-import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteQuery
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 
 //The Dao (Data Access Object) interface contains all queries to the database
 @Dao
@@ -64,9 +65,15 @@ interface CharacterDao {
 //    var class_name: String?,
 
 
-//    //Query Type #3: Update
+    //Query Type #3: Update
 //    @Query("UPDATE from subject WHERE id = :subject_id:name")
-//    fun update(subject_id: String?)
+//    fun update(subject_id: String?, name: String?)
+
+//    @Query("UPDATE user SET first_name =:fname ,last_name=:lname WHERE email =:email")
+//    fun updateUser(email: String?, fname: String?, lname: String?): Int
+
+    @Query("UPDATE subject SET name = :name WHERE id = :subject_id")
+    fun update(subject_id: Int?, name: String?)
 
     //Query Type #4: Delete
     @Query("DELETE FROM subject WHERE id = :subject_id")

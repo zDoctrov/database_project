@@ -52,7 +52,12 @@ class InstanceResultPage() : AppCompatActivity() {
         }
 
         binding.btnEditCharacter.setOnClickListener(){
+//            val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
+//            characterDao?.update(creationSession.queryResults[position].id, "Hubert")
+            val intent = Intent(this, QueryCharEditPage::class.java)
+                .putExtra("position", position)
 
+            startActivity(intent)
         }
 
         binding.btnHome.setOnClickListener(){

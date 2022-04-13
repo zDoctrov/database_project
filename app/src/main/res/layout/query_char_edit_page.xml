@@ -5,44 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:id="@+id/EditTextName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/nameTextView2"
+        app:layout_constraintEnd_toEndOf="@+id/actualRaceId2"
+        app:layout_constraintStart_toStartOf="@+id/actualRaceId2"
+        app:layout_constraintTop_toTopOf="@+id/nameTextView2"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <EditText
         android:id="@+id/actualCreditId2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:width="200dp"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/creditsTextView2"
         app:layout_constraintStart_toEndOf="@+id/creditsTextView2"
         app:layout_constraintTop_toTopOf="@+id/creditsTextView2"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/actualClassId2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/classTextView2"
-        app:layout_constraintStart_toEndOf="@+id/actualCreditId2"
+        app:layout_constraintEnd_toEndOf="@+id/actualCreditId2"
+        app:layout_constraintStart_toStartOf="@+id/actualCreditId2"
         app:layout_constraintTop_toTopOf="@+id/classTextView2"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/actualFactionId2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/factionTextView2"
-        app:layout_constraintStart_toEndOf="@+id/actualClassId2"
+        app:layout_constraintEnd_toEndOf="@+id/actualClassId2"
+        app:layout_constraintStart_toStartOf="@+id/actualClassId2"
         app:layout_constraintTop_toTopOf="@+id/factionTextView2"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/actualRaceId2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/raceTextView2"
-        app:layout_constraintStart_toEndOf="@+id/actualFactionId2"
+        app:layout_constraintEnd_toEndOf="@+id/actualFactionId2"
+        app:layout_constraintStart_toStartOf="@+id/actualFactionId2"
         app:layout_constraintTop_toTopOf="@+id/raceTextView2"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -51,7 +67,7 @@
         android:layout_width="291dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:backgroundTint="@color/query_orange"
+        android:backgroundTint="@color/create_green"
         android:text="SAVE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="44dp"
         android:text="Class:"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -94,7 +109,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="12dp"
         android:text="Race:"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -117,7 +131,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="4dp"
         android:text="Faction:"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -136,17 +149,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classTextView2" />
 
-    <EditText
-        android:id="@+id/EditTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/nameTextView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/actualRaceId2"
-        app:layout_constraintTop_toTopOf="@+id/nameTextView2"
-        app:layout_constraintVertical_bias="0.466" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
