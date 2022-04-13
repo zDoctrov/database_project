@@ -18,6 +18,7 @@ class QueryCharEditPage: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.query_char_edit_page)
 
         //Get which card cell was chosen and apply their data to the activity screen as appropriately
