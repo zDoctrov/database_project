@@ -1,24 +1,19 @@
 package com.example.database_project
 
-import android.content.Intent
+import android.app.Application
+import android.content.Context
+import android.content.res.Resources
 import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.text.bold
 import androidx.core.text.underline
 import androidx.recyclerview.widget.RecyclerView
-import com.example.database_project.char_creator.CharActivity3
 import com.example.database_project.char_creator.creationSession
-import com.example.database_project.char_query.InstanceResultPage
-import com.example.database_project.char_query.QuerySearchResults
 import com.example.database_project.room_db.AllFourTablesJoined
-import com.google.android.material.snackbar.Snackbar
-import org.w3c.dom.Text
 
 
 class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
@@ -79,7 +74,9 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
             .append(mutableQueryResults[position].faction_name)
 
         //TODO: Image profiles for each character
-        viewHolder.itemImage.setImageResource(R.drawable.nft_monkey)
+        val raceImage = "@drawable/" + creationSession.setRaceImage(mutableQueryResults[position].race)
+        val imageResource = App.context?.resources?.getIdentifier(raceImage, "drawable", App.context?.packageName)
+        viewHolder.itemImage.setImageResource(imageResource!!)
     }
 
     fun deleteCharItem(pos: Int){
