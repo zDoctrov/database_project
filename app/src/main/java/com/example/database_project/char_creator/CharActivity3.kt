@@ -27,6 +27,27 @@ class CharActivity3 : AppCompatActivity() {
         binding = CharCreate3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //for sending the images to charActivity3
+        var imageNameRace = "@drawable/" +creationSession.setRaceImage(creationSession.race)
+        var imageNameHair = "@drawable/" +creationSession.setHairImage(creationSession.hair)
+        var imageNameEyes = "@drawable/" +creationSession.setEyesImage(creationSession.eyes)
+        var imageNameEars = "@drawable/" +creationSession.setEarsImage(creationSession.ears)
+
+        var imageResId1= resources.getIdentifier(imageNameRace, "drawable", packageName)
+        var imageResId2= resources.getIdentifier(imageNameHair, "drawable", packageName)
+        var imageResId3 = resources.getIdentifier(imageNameEyes, "drawable", packageName)
+        var imageResId4 = resources.getIdentifier(imageNameEars, "drawable", packageName)
+
+
+
+
+        binding.imageView3.setImageResource(imageResId1)
+        binding.imageView8.setImageResource(imageResId2)
+        binding.imageView9.setImageResource(imageResId3)
+        binding.imageView10.setImageResource(imageResId4)
+
+
+
         //Setup ArrayAdapters for the data used inside the spinners
         val classList = res.getStringArray(R.array.user_class)
         val classArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, classList)

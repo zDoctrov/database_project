@@ -24,6 +24,23 @@ class CharActivity2 : AppCompatActivity() {
         binding = CharCreate2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var imageName = "@drawable/" +creationSession.setRaceImage(creationSession.race)
+
+        var imageResId1= resources.getIdentifier(imageName, "drawable", packageName)
+
+        //this is for sending the images to Characvivity 3
+        var ImageResId2= resources.getIdentifier(imageName, "drawable", packageName)
+        var imageResId3 = resources.getIdentifier(imageName, "drawable", packageName)
+       var ImageResId4 = resources.getIdentifier(imageName, "drawable", packageName)
+
+
+
+
+        binding.imageView2.setImageResource(imageResId1)
+
+
+
+
         //Setup ArrayAdapters for the data used inside the spinners
         val hairList = res.getStringArray(R.array.hair)
         val hairArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, hairList)
@@ -38,36 +55,36 @@ class CharActivity2 : AppCompatActivity() {
         binding.spinnerEyes.adapter = eyeArrayAdapter
 
 
-        // Start of overlaying images as the user chooses spinners
-
-            // get intent data
-        val intent = intent
-        val race = intent.getStringExtra("Race")
-        val raceChoice = race.toString()
-
-
-        val img = findViewById<ImageView>(R.id.imageView2)
-        img.layoutParams = LinearLayout.LayoutParams(600, 900)
-
-        val imgResId1 = R.drawable.race_human // blank human image
-        val imgResId2 = R.drawable.race_dwarf // blank dwarf image
-        val imgResId3 = R.drawable.race_elf // blank elf image
-
-        img.x = 230F - (img.width / 2)
-
-        when (raceChoice) {
-            "Human" -> {
-                img.setImageResource(imgResId1)
-            }
-            "Dwarf" -> {
-                img.setImageResource(imgResId2)
-            }
-            "Elf" -> {
-                img.setImageResource(imgResId3)
-            }
-        }
-
-        // Start of eyes image appearing when spinner selects it
+//        // Start of overlaying images as the user chooses spinners
+//
+//            // get intent data
+//        val intent = intent
+//        val race = intent.getStringExtra("Race")
+//        val raceChoice = race.toString()
+//
+//
+//        val img = findViewById<ImageView>(R.id.imageView2)
+//        img.layoutParams = LinearLayout.LayoutParams(600, 900)
+//
+//        val imgResId1 = R.drawable.race_human // blank human image
+//        val imgResId2 = R.drawable.race_dwarf // blank dwarf image
+//        val imgResId3 = R.drawable.race_elf // blank elf image
+//
+//        img.x = 230F - (img.width / 2)
+//
+//        when (raceChoice) {
+//            "Human" -> {
+//                img.setImageResource(imgResId1)
+//            }
+//            "Dwarf" -> {
+//                img.setImageResource(imgResId2)
+//            }
+//            "Elf" -> {
+//                img.setImageResource(imgResId3)
+//            }
+//        }
+//
+//        // Start of eyes image appearing when spinner selects it
 
         val img3 = findViewById<ImageView>(R.id.imageView5)
         img3.layoutParams = LinearLayout.LayoutParams(600, 900)
@@ -100,7 +117,7 @@ class CharActivity2 : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                img.setImageResource(imgResId7) // never uses this, just requires something here
+                img3.setImageResource(imgResId7) // never uses this, just requires something here
             }
 
         }
@@ -140,7 +157,7 @@ class CharActivity2 : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                img.setImageResource(imgResId10) // never uses this, just requires something here
+                img4.setImageResource(imgResId10) // never uses this, just requires something here
             }
 
         }
@@ -180,7 +197,7 @@ class CharActivity2 : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                img.setImageResource(imgResId4) // never uses this, just requires something here
+                img2.setImageResource(imgResId4) // never uses this, just requires something here
             }
 
         }

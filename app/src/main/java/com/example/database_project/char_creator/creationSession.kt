@@ -56,4 +56,69 @@ object creationSession {
 
         queryResults = listOf()
     }
+
+    fun setRaceImage(race: String): String{
+        when(race){
+            "Human" -> {
+                return "race_human"
+            }
+            "Dwarf"-> {
+                return "race_dwarf"
+            }
+            "Elf"-> {
+                return "race_elf"
+            }
+        }//end when()
+        return "nft_monkey"
+    }//end setRaceImage
+
+    fun setHairImage(Hair: String): String{
+        when(Hair){
+            "Long" -> {
+                return "hair_long"
+            }
+            "Short"-> {
+                return "hair_short"
+            }
+            "Fuzzy"-> {
+                return "hair_fuzzy"
+            }
+        }//end when()
+        return "nft_monkey"
+    }//end setHairImage
+
+    fun setEyesImage(eye: String): String{
+        when(eye){
+            "Round" -> {
+                return "eyes_round"
+            }
+            "Squinted"-> {
+                return "eyes_squinted"
+            }
+            "Lazy"-> {
+                return "eyes_lazy"
+            }
+        }//end when()
+        return "nft_monkey"
+    }//end setRaceImage
+
+
+    fun setEarsImage(ear: String): String{
+        when(ear){
+            "Round" -> {
+                return "ears_round"
+            }
+            "Pointed"-> {
+                return "ears_pointed"
+            }
+            "Square"-> {
+                return "ears_square"
+            }
+        }//end when()
+        return "nft_monkey"
+    }//end setRaceImage
+
+
+
+
 }
