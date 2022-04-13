@@ -157,6 +157,40 @@ class CharActivity2 : AppCompatActivity() {
         // End of Ears image appearing when spinner selects it
 
 
+//
+//        // Start of overlaying images as the user chooses spinners
+//
+//        // get intent data
+//        val intent = intent
+//        val race = intent.getStringExtra("Race")
+//        val raceChoice = race.toString()
+//
+//
+//        val img3 = findViewById<ImageView>(R.id.imageView2)
+//        img3.layoutParams = LinearLayout.LayoutParams(300, 600)
+//
+//        val imgResId1 = R.drawable.race_human // blank human image
+//        val imgResId2 = R.drawable.race_dwarf // blank dwarf image
+//        val imgResId3 = R.drawable.race_elf // blank elf image
+//
+//        img3.x = 23F - (img3.width / 2)
+//
+//        when (raceChoice) {
+//            "Human" -> {
+//                img3.setImageResource(imgResId1)
+//            }
+//            "Dwarf" -> {
+//                img3.setImageResource(imgResId2)
+//            }
+//            "Elf" -> {
+//                img3.setImageResource(imgResId3)
+//            }
+//        }
+//
+//
+//        // End of overlaying images as the user chooses spinners
+
+
 
 
 

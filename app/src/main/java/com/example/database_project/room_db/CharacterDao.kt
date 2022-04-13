@@ -64,7 +64,9 @@ interface CharacterDao {
 //    var class_name: String?,
 
 
-    //Query Type #3: Update
+//    //Query Type #3: Update
+//    @Query("UPDATE from subject WHERE id = :subject_id:name")
+//    fun update(subject_id: String?)
 
     //Query Type #4: Delete
     @Query("DELETE FROM subject WHERE id = :subject_id")

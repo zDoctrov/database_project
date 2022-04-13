@@ -35,14 +35,18 @@ class CharActivity : AppCompatActivity() {
         val factionArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, factionList)
         binding.spinnerFaction.adapter = factionArrayAdapter
 
+
+
+        val race = binding.spinnerRace.selectedItem.toString()
+
         // Start of race image appearing when spinner selects it
 
         val img = findViewById<ImageView>(R.id.imageViewRace)
         img.layoutParams = LinearLayout.LayoutParams(186, 269)
 
-        val imgResId1 = R.drawable.human // blank human image
-        val imgResId2 = R.drawable.dwarf // blank dwarf image
-        val imgResId3 = R.drawable.elf // blank elf image
+        val imgResId1 = R.drawable.race_human // blank human image
+        val imgResId2 = R.drawable.race_dwarf // blank dwarf image
+        val imgResId3 = R.drawable.race_elf // blank elf image
 
 
         binding.spinnerRace.onItemSelectedListener = object :
@@ -150,6 +154,11 @@ class CharActivity : AppCompatActivity() {
             }
             else{
                 val intent = Intent(this, CharActivity2::class.java)
+                startActivity(intent)
+
+
+
+                intent.putExtra("Race", race)
                 startActivity(intent)
             }
         }
