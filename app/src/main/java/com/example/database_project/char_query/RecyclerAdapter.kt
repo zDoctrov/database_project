@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.text.bold
 import androidx.core.text.underline
 import androidx.recyclerview.widget.RecyclerView
@@ -101,6 +102,7 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
     }
 
     fun deleteCharItem(pos: Int){
+        Toast.makeText(App.context, "The character ${creationSession.queryResults[pos].name} was Deleted.", Toast.LENGTH_LONG).show()
         mutableQueryResults.removeAt(pos)
         notifyItemRemoved(pos)
         notifyItemRangeChanged(pos, mutableQueryResults.size)

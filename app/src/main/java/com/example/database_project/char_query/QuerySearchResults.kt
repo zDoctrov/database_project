@@ -36,6 +36,7 @@ class QuerySearchResults : AppCompatActivity(), RecyclerAdapter.OnCharListener {
     override fun onCharClick(pos: Int) {
         val intent = Intent(this, InstanceResultPage::class.java)
             .putExtra("position", pos)
+        println("QuerySearchResults --> onCharClick pos: $pos")
 
         //Use startActivityForResult to get data back from InstanceResultPage and
         // redirect it toward the RecycleView after updating or deleting an item from DB
@@ -48,16 +49,14 @@ class QuerySearchResults : AppCompatActivity(), RecyclerAdapter.OnCharListener {
 
         //Delete (request code = 1)
         if(requestCode == 1){
-            if(resultCode == RESULT_OK){
-                //Do data stuff here
-                var receivedPosition = data?.getIntExtra("position", 0)
-                println("clicked position: $receivedPosition")
+            if(resultCode != RESULT_CANCELED){
+                if(resultCode == RESULT_OK){
+                    //Do data stuff here
+                    var receivedPosition = data?.getIntExtra("position", 0)
 
-                //Access the adapter's functions using this bizarre syntax
-                (this.adapter as RecyclerAdapter).deleteCharItem(receivedPosition!!)
-            }
-            if(resultCode == RESULT_CANCELED){
-                //Error
+                    //Access the adapter's functions using this bizarre syntax
+                    (this.adapter as RecyclerAdapter).deleteCharItem(receivedPosition!!)
+                }
             }
         }
     }
