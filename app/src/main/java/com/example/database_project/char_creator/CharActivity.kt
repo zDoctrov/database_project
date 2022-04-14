@@ -92,12 +92,7 @@ class CharActivity : AppCompatActivity() {
         img2.layoutParams = LinearLayout.LayoutParams(240, 300)
 
         val imgResId4 = R.drawable.smoke // merchants guild faction image
-        val imgResId5 = R.drawable.tank // free guard faction image
-        val imgResId6 = R.drawable.temple // iron company faction image
-        val imgResId7 = R.drawable.tractor // united scholars faction image
-        val imgResId8 = R.drawable.academic // dastardly deacons faction image
-
-
+        
         binding.spinnerFaction.onItemSelectedListener = object :
 
 
@@ -108,19 +103,19 @@ class CharActivity : AppCompatActivity() {
                 img2.y = 1140F + (img2.height / 2)
                 when {
                     binding.spinnerFaction.selectedItem.toString() == "Merchants Guild" -> {
-                        img2.setImageResource(imgResId4)
+                        img2.setImageResource(R.drawable.merchants_guild)
                     }
                     binding.spinnerFaction.selectedItem.toString() == "Free Guard" -> {
-                        img2.setImageResource(imgResId5)
+                        img2.setImageResource(R.drawable.free_guard)
                     }
                     binding.spinnerFaction.selectedItem.toString() == "Iron Company" -> {
-                        img2.setImageResource(imgResId6)
+                        img2.setImageResource(R.drawable.iron_company)
                     }
                     binding.spinnerFaction.selectedItem.toString() == "United Scholars" -> {
-                        img2.setImageResource(imgResId7)
+                        img2.setImageResource(R.drawable.united_scholars)
                     }
                     binding.spinnerFaction.selectedItem.toString() == "Dastardly Deacons" -> {
-                        img2.setImageResource(imgResId8)
+                        img2.setImageResource(R.drawable.dastardly_deacons)
                     }
                 }
             }
