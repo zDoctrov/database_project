@@ -88,11 +88,11 @@
         android:id="@+id/classTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:text="Class:"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/creditsTextView2"
+        app:layout_constraintStart_toStartOf="@+id/creditsTextView2"
         app:layout_constraintTop_toBottomOf="@+id/factionTextView2" />
 
     <ImageView
@@ -113,19 +113,20 @@
         android:text="Race:"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/factionTextView2"
+        app:layout_constraintStart_toStartOf="@+id/factionTextView2"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView2" />
 
     <TextView
         android:id="@+id/nameTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="250dp"
         android:text="Name:"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/raceTextView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/factionTextView2"
@@ -135,21 +136,43 @@
         android:text="Faction:"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/classTextView2"
+        app:layout_constraintStart_toStartOf="@+id/creditsTextView2"
         app:layout_constraintTop_toBottomOf="@+id/raceTextView2" />
 
     <TextView
         android:id="@+id/creditsTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="£ (Credits): "
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nameTextView2"
         app:layout_constraintTop_toBottomOf="@+id/classTextView2" />
 
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="151dp"
+        android:layout_height="141dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/eyes_round" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="155dp"
+        android:layout_height="141dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/ears_round" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="144dp"
+        android:layout_height="146dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/hair_long" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
