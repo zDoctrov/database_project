@@ -134,7 +134,9 @@ class QueryCharEditPage: AppCompatActivity() {
 
         val homeButton = findViewById<Button>(R.id.btnHome2)
         homeButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            //Sends user back to start screen
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 

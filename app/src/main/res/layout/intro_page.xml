@@ -8,14 +8,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="246dp"
-        android:layout_height="197dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/CreateCharacterbtn"
+        app:layout_constraintEnd_toEndOf="@+id/CreateCharacterbtn"
+        app:layout_constraintStart_toStartOf="@+id/CreateCharacterbtn"
         app:layout_constraintTop_toBottomOf="@+id/titleView"
-        app:srcCompat="@drawable/nft_monkey" />
+        app:srcCompat="@drawable/intro_page_man" />
 
     <Button
         android:id="@+id/CreateCharacterbtn"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/create_green"
         android:minHeight="67dip"
         android:text="Create Character"

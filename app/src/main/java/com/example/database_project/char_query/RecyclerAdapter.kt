@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.core.text.bold
 import androidx.core.text.underline
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ import com.example.database_project.room_db.AllFourTablesJoined
 
 class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     val mutableQueryResults : MutableList<AllFourTablesJoined> = creationSession.queryResults.toMutableList()
+
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         //Image layering: Race --> Eyes --> Ear --> Hair
@@ -29,6 +31,8 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
         var charRace : TextView
         var charFaction : TextView
 
+        val cardView: CardView
+
 
         init {
             raceImage = itemView.findViewById(R.id.raceImage)
@@ -40,6 +44,8 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
             charClass = itemView.findViewById(R.id.characterClass)
             charRace = itemView.findViewById(R.id.characterRace)
             charFaction = itemView.findViewById(R.id.characterFaction)
+
+            cardView = itemView.findViewById(R.id.card_view)
 
             itemView.setOnClickListener {v : View ->
                 var position : Int = getAdapterPosition()
@@ -79,6 +85,25 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
         viewHolder.charFaction.text = SpannableStringBuilder()
             .bold{append("Faction: ")}
             .append(mutableQueryResults[position].faction_name)
+
+        //Change CardView CardBackgroundColor based on what faction the user chose
+        when(mutableQueryResults[position].faction_name){
+            "Merchants Guild" -> {
+                viewHolder.cardView.setCardBackgroundColor(App.context?.resources?.getColor(R.color.merchant_green)!!)
+            }
+            "Free Guard"-> {
+                viewHolder.cardView.setCardBackgroundColor(App.context?.resources?.getColor(R.color.freedom_white)!!)
+            }
+            "Iron Company"-> {
+                viewHolder.cardView.setCardBackgroundColor(App.context?.resources?.getColor(R.color.iron_red)!!)
+            }
+            "United Scholars"-> {
+                viewHolder.cardView.setCardBackgroundColor(App.context?.resources?.getColor(R.color.scholarly_blue)!!)
+            }
+            "Dastardly Deacons"-> {
+                viewHolder.cardView.setCardBackgroundColor(App.context?.resources?.getColor(R.color.dastardly_yellow)!!)
+            }
+        }//end when()
 
         // Race
         val raceImage = "@drawable/" + creationSession.setRaceImage(mutableQueryResults[position].race)
