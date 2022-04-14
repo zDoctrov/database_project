@@ -3,16 +3,17 @@ package com.example.database_project.char_query
 
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
-import android.provider.SyncStateContract.Helpers.update
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Update
 import com.example.database_project.MainActivity
 import com.example.database_project.R
 import com.example.database_project.char_creator.creationSession
-import com.example.database_project.databinding.ActivityInstanceResultPageBinding
 import com.example.database_project.databinding.QueryCharEditPageBinding
 import com.example.database_project.room_db.RoomAppDB
 
@@ -21,11 +22,12 @@ class QueryCharEditPage: AppCompatActivity() {
     private lateinit var binding: QueryCharEditPageBinding
     //Set up binding, so you can reference the ID's of things on this activity's layout
 
+//    lateinit var editPasser: OnEditPass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.query_char_edit_page)
-
+        val res: Resources = resources
         binding = QueryCharEditPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -123,13 +125,70 @@ class QueryCharEditPage: AppCompatActivity() {
         //Get which card cell was chosen and apply their data to the activity screen as appropriately
         val position = intent.getIntExtra("position", -1)
 
-        /*binding = QueryCharEditPageBinding.inflate(layoutInflater)
-        setContentView(binding.root)*/
+        //EditTextName
+        binding.EditTextName.setText(creationSession.queryResults[position].name)
+
+        //Race ArrayAdapter
+        val raceList = res.getStringArray(R.array.races)
+        val raceArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, raceList)
+        binding.raceSpinnerEdit.adapter = raceArrayAdapter
+        binding.raceSpinnerEdit.setSelection(raceArrayAdapter.getPosition(creationSession.queryResults[position].race))
+
+        //Faction ArrayAdapter
+        val factionList = res.getStringArray(R.array.factions)
+        val factionArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, factionList)
+        binding.factionSpinnerEdit.adapter = factionArrayAdapter
+        binding.factionSpinnerEdit.setSelection(factionArrayAdapter.getPosition(creationSession.queryResults[position].faction_name))
+
+        //Class ArrayAdapter
+        val classList = res.getStringArray(R.array.user_class)
+        val classArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, classList)
+        binding.classSpinnerEdit.adapter = classArrayAdapter
+        binding.classSpinnerEdit.setSelection(classArrayAdapter.getPosition(creationSession.queryResults[position].class_name))
+
+        binding.classSpinnerEdit.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                // your code here
+                getStartingCurrency(binding.classSpinnerEdit.selectedItem.toString())
+                binding.actualCreditId2.text = creationSession.user_currency.toString()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // your code here
+                // slight change to push
+            }
+        })
 
         val saveButton = findViewById<Button>(R.id.btnSave)
         saveButton.setOnClickListener{
+            //Update Database values
             val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
             characterDao?.update(creationSession.queryResults[position].id, binding.EditTextName.text.toString())
+
+            //Set values in creationSession
+            creationSession.queryResults[position].name = binding.EditTextName.text.toString()
+            creationSession.queryResults[position].race = binding.raceSpinnerEdit.selectedItem.toString()
+            creationSession.queryResults[position].faction_name = binding.factionSpinnerEdit.selectedItem.toString()
+            creationSession.queryResults[position].class_name = binding.classSpinnerEdit.selectedItem.toString()
+
+            //
+//            editPasser.onEditPass(position, creationSession.queryResults[position])
+//            val intent = Intent()
+//            intent.putExtra("ActivityResult", "<Data to return>")
+//            setResult(RESULT_OK, intent)
+//            finish()
+
+            val data = Intent(applicationContext, QuerySearchResults::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra("editPosition2", position)
+            // Activity finished ok, return the data
+            setResult(RESULT_OK, data)
+            startActivity(data)
         }
 
         val homeButton = findViewById<Button>(R.id.btnHome2)
@@ -142,4 +201,28 @@ class QueryCharEditPage: AppCompatActivity() {
 
 
     }
+
+    fun getStartingCurrency(char_class: String) {
+        when(char_class){
+            "Noble"->{
+                creationSession.user_currency = 100.0
+            }
+            "Brigand"->{
+                creationSession.user_currency = 50.0
+            }
+            "Merchant"->{
+                creationSession.user_currency = 20.0
+            }
+            "Commoner"->{
+                creationSession.user_currency = 5.0
+            }
+            "Peasant"->{
+                creationSession.user_currency = -10.0
+            }
+        }
+    }
 }
+//
+//interface OnEditPass {
+//    fun onEditPass(pos: Int, editedChar: AllFourTablesJoined)
+//}
