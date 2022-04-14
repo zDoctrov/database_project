@@ -64,14 +64,16 @@
 
     <ImageView
         android:id="@+id/imageViewRace"
-        android:layout_width="106dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nft_monkey"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerRace"
-        android:src="@drawable/nft_monkey" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewFaction"
@@ -86,25 +88,27 @@
 
     <ImageView
         android:id="@+id/imageViewFaction"
-        android:layout_width="106dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/nft_monkey"
+        app:layout_constraintBottom_toTopOf="@+id/backBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerFaction" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFaction"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/continueBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
         android:layout_marginEnd="88dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/create_green"
         android:text="Continue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerFaction"
@@ -119,9 +123,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/danger_red"
         android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
