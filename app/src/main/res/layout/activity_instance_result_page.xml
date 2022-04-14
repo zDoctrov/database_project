@@ -119,6 +119,7 @@
         app:layout_constraintStart_toStartOf="@+id/actualFactionId"
         app:layout_constraintTop_toTopOf="@+id/raceTextView" />
 
+
     <Button
         android:id="@+id/btnDeleteCharacter"
         android:layout_width="0dp"

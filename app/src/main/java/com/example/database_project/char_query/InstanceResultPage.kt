@@ -138,6 +138,7 @@ class InstanceResultPage() : AppCompatActivity() {
                     .putExtra("position", position)
                 setResult(RESULT_OK, deleteIntent)
 
+
                 finish()
             }
             builder.setNegativeButton("No") { _: DialogInterface, i: Int ->

@@ -95,6 +95,7 @@ class QueryCharEditPage: AppCompatActivity() {
             }
         }
 
+
         var imageResId1= resources.getIdentifier(imageNameRace, "drawable", packageName)
         var imageResId2= resources.getIdentifier(imageNameHair, "drawable", packageName)
         var imageResId3 = resources.getIdentifier(imageNameEyes, "drawable", packageName)
