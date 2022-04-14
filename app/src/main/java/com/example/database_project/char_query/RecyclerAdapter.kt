@@ -1,8 +1,5 @@
 package com.example.database_project
 
-import android.app.Application
-import android.content.Context
-import android.content.res.Resources
 import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +17,12 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
     val mutableQueryResults : MutableList<AllFourTablesJoined> = creationSession.queryResults.toMutableList()
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        var itemImage : ImageView
+        //Image layering: Race --> Eyes --> Ear --> Hair
+        var raceImage : ImageView
+        var eyeImage : ImageView
+        var earImage : ImageView
+        var hairImage : ImageView
+
         var charName : TextView
         var charClass : TextView
         var charRace : TextView
@@ -28,7 +30,11 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
 
 
         init {
-            itemImage = itemView.findViewById(R.id.itemImage)
+            raceImage = itemView.findViewById(R.id.raceImage)
+            eyeImage = itemView.findViewById(R.id.eyeImage)
+            earImage = itemView.findViewById(R.id.earImage)
+            hairImage = itemView.findViewById(R.id.hairImage)
+
             charName = itemView.findViewById(R.id.characterName)
             charClass = itemView.findViewById(R.id.characterClass)
             charRace = itemView.findViewById(R.id.characterRace)
@@ -73,16 +79,32 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
             .bold{append("Faction: ")}
             .append(mutableQueryResults[position].faction_name)
 
-        //TODO: Image profiles for each character
+        // Race
         val raceImage = "@drawable/" + creationSession.setRaceImage(mutableQueryResults[position].race)
         val imageResource = App.context?.resources?.getIdentifier(raceImage, "drawable", App.context?.packageName)
-        viewHolder.itemImage.setImageResource(imageResource!!)
+        viewHolder.raceImage.setImageResource(imageResource!!)
+
+        // Eyes
+        val eyeImage = "@drawable/" + creationSession.setEyesImage(mutableQueryResults[position].eyes)
+        val eyeImageResource = App.context?.resources?.getIdentifier(eyeImage, "drawable", App.context?.packageName)
+        viewHolder.eyeImage.setImageResource(eyeImageResource!!)
+
+        // Ear
+        val earImage = "@drawable/" + creationSession.setEarsImage(mutableQueryResults[position].ears)
+        val earImageResource = App.context?.resources?.getIdentifier(earImage, "drawable", App.context?.packageName)
+        viewHolder.earImage.setImageResource(earImageResource!!)
+
+        // Hair
+        val hairImage = "@drawable/" + creationSession.setHairImage(mutableQueryResults[position].hair)
+        val hairImageResource = App.context?.resources?.getIdentifier(hairImage, "drawable", App.context?.packageName)
+        viewHolder.hairImage.setImageResource(hairImageResource!!)
     }
 
     fun deleteCharItem(pos: Int){
         mutableQueryResults.removeAt(pos)
         notifyItemRemoved(pos)
         notifyItemRangeChanged(pos, mutableQueryResults.size)
+        creationSession.queryResults = mutableQueryResults
     }
 
     override fun getItemCount(): Int {
