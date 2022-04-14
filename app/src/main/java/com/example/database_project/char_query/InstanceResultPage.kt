@@ -137,8 +137,6 @@ class InstanceResultPage() : AppCompatActivity() {
                 val deleteIntent = Intent(this, QuerySearchResults::class.java)
                     .putExtra("position", position)
                 setResult(RESULT_OK, deleteIntent)
-
-
                 finish()
             }
             builder.setNegativeButton("No") { _: DialogInterface, i: Int ->
@@ -148,7 +146,7 @@ class InstanceResultPage() : AppCompatActivity() {
 
         binding.btnEditCharacter.setOnClickListener(){
             val intent = Intent(this, QueryCharEditPage::class.java)
-                .putExtra("position", position)
+                .putExtra("editPosition1", position)
 
             startActivity(intent)
         }

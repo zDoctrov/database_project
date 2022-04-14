@@ -3,6 +3,7 @@ package com.example.database_project.room_db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import java.util.*
 
 //The Dao (Data Access Object) interface contains all queries to the database
 @Dao
@@ -30,6 +31,16 @@ interface CharacterDao {
     )
     fun getAllFourTablesJoined(): List<AllFourTablesJoined>?    //No Filters
 
+    //Queries for getting the subject id from foreign keys
+    @Query("SELECT build_id FROM build WHERE subject_id = :subject_id")
+    fun buildIDFromSubject(subject_id: Int?): Int
+
+    @Query("SELECT faction_id FROM faction WHERE subject_id = :subject_id")
+    fun factionIDFromSubject(subject_id: Int?): Int
+
+    @Query("SELECT class_id FROM class WHERE subject_id = :subject_id")
+    fun classIDFromSubject(subject_id: Int?): Int
+
     //Filtered Version: Parameters are 'NULL' if user doesn't set a value for filtering
     @Query("""
         SELECT * FROM subject
@@ -54,26 +65,40 @@ interface CharacterDao {
                                     class_name: String?
                                     ): List<AllFourTablesJoined>?    //No Filters
 
-//    var name: String?,
-//    var race: String?,
-//    var faction_name: String?,
-
-//    var hair: String?,
-//    var ears: String?,
-//    var eyes: String?,
-
-//    var class_name: String?,
-
-
     //Query Type #3: Update
-//    @Query("UPDATE from subject WHERE id = :subject_id:name")
-//    fun update(subject_id: String?, name: String?)
 
-//    @Query("UPDATE user SET first_name =:fname ,last_name=:lname WHERE email =:email")
-//    fun updateUser(email: String?, fname: String?, lname: String?): Int
-
+//    @Entity(tableName = "subject")
+//data class SubjectEntity (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int,
+//                          @ColumnInfo(name = "name") val name: String
+//                          )
+    //Subject Update
     @Query("UPDATE subject SET name = :name WHERE id = :subject_id")
-    fun update(subject_id: Int?, name: String?)
+    fun updateSubject(subject_id: Int?, name: String?)
+
+    //Build Update
+    @Query("UPDATE build SET race = :race, hair = :hair, ears = :ears, eyes = :eyes WHERE build_id = :build_id")
+    fun updateBuild(build_id: Int?,
+                    race: String?,
+                    hair: String?,
+                    ears: String?,
+                    eyes: String?
+)
+
+    //Faction Update
+    @Query("UPDATE faction SET faction_name = :faction_name, reputation = :reputation, ideology = :ideology WHERE faction_id = :faction_id")
+    fun updateFaction(faction_id: Int?,
+                      faction_name: String?,
+                      reputation: String?,
+                      ideology: String?)
+
+    //Class Update
+    @Query("UPDATE class SET class_name = :class_name, currency = :currency WHERE class_id = :class_id")
+    fun updateClass(class_id: Int?,
+                    class_name: String?,
+                    currency: Double?)
+
+
+
 
     //Query Type #4: Delete
     @Query("DELETE FROM subject WHERE id = :subject_id")

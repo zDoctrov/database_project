@@ -15,6 +15,7 @@ import com.example.database_project.MainActivity
 import com.example.database_project.R
 import com.example.database_project.char_creator.creationSession
 import com.example.database_project.databinding.QueryCharEditPageBinding
+import com.example.database_project.room_db.AllFourTablesJoined
 import com.example.database_project.room_db.RoomAppDB
 
 class QueryCharEditPage: AppCompatActivity() {
@@ -31,23 +32,21 @@ class QueryCharEditPage: AppCompatActivity() {
         binding = QueryCharEditPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         //for layering the images
         var imageNameRace = "@drawable/"
         var imageNameHair = "@drawable/"
         var imageNameEyes = "@drawable/"
         var imageNameEars = "@drawable/"
 
-        val positionRace = intent.getIntExtra("position", -1)
-        val raceType = creationSession.queryResults[positionRace].race
+        //Get which card cell was chosen and apply their data to the activity screen as appropriately
+        val position = intent.getIntExtra("editPosition1", -1)
 
-        val positionHair = intent.getIntExtra("position", -1)
-        val HairType = creationSession.queryResults[positionHair].hair
-
-        val positionEyes = intent.getIntExtra("position", -1)
-        val EyeType = creationSession.queryResults[positionEyes].eyes
-
-        val positionEars = intent.getIntExtra("position", -1)
-        val EarType = creationSession.queryResults[positionEars].ears
+        val raceType = creationSession.queryResults[position].race
+        val HairType = creationSession.queryResults[position].hair
+        val EyeType = creationSession.queryResults[position].eyes
+        val EarType = creationSession.queryResults[position].ears
 
         when(raceType){
             "Human"->{
@@ -123,7 +122,7 @@ class QueryCharEditPage: AppCompatActivity() {
 
 
         //Get which card cell was chosen and apply their data to the activity screen as appropriately
-        val position = intent.getIntExtra("position", -1)
+//        val position = intent.getIntExtra("position", -1)
 
         //EditTextName
         binding.EditTextName.setText(creationSession.queryResults[position].name)
@@ -133,6 +132,23 @@ class QueryCharEditPage: AppCompatActivity() {
         val raceArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, raceList)
         binding.raceSpinnerEdit.adapter = raceArrayAdapter
         binding.raceSpinnerEdit.setSelection(raceArrayAdapter.getPosition(creationSession.queryResults[position].race))
+
+        binding.raceSpinnerEdit.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.imageView5.setImageResource(resources.getIdentifier(
+                    creationSession.setRaceImage(binding.raceSpinnerEdit.selectedItem.toString()), "drawable", packageName))
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // your code here
+                // slight change to push
+            }
+        })
 
         //Faction ArrayAdapter
         val factionList = res.getStringArray(R.array.factions)
@@ -166,22 +182,43 @@ class QueryCharEditPage: AppCompatActivity() {
 
         val saveButton = findViewById<Button>(R.id.btnSave)
         saveButton.setOnClickListener{
-            //Update Database values
-            val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
-            characterDao?.update(creationSession.queryResults[position].id, binding.EditTextName.text.toString())
-
             //Set values in creationSession
             creationSession.queryResults[position].name = binding.EditTextName.text.toString()
             creationSession.queryResults[position].race = binding.raceSpinnerEdit.selectedItem.toString()
             creationSession.queryResults[position].faction_name = binding.factionSpinnerEdit.selectedItem.toString()
             creationSession.queryResults[position].class_name = binding.classSpinnerEdit.selectedItem.toString()
 
-            //
-//            editPasser.onEditPass(position, creationSession.queryResults[position])
-//            val intent = Intent()
-//            intent.putExtra("ActivityResult", "<Data to return>")
-//            setResult(RESULT_OK, intent)
-//            finish()
+//            @Query("""UPDATE build SET race = :race, hair = :hair, ears = :ears, eyes = :eyes WHERE build_id = :build_id""")
+//    fun updateBuild(build_id: Int?,
+//                    race: String?,
+//                    hair: String?,
+//                    ears: String?,
+//                    eyes: String?
+
+            //Update Database values
+            //TODO: Get ids of other tables
+            val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
+            characterDao?.updateSubject(creationSession.queryResults[position].id,
+                                        creationSession.queryResults[position].name)
+            characterDao?.updateBuild(  characterDao?.buildIDFromSubject(creationSession.queryResults[position].id),
+                                        creationSession.queryResults[position].race,
+                                        creationSession.queryResults[position].hair,
+                                        creationSession.queryResults[position].ears,
+                                        creationSession.queryResults[position].eyes)
+            characterDao?.updateFaction(    characterDao?.factionIDFromSubject(creationSession.queryResults[position].id),
+                                            creationSession.queryResults[position].faction_name,
+                                            creationSession.queryResults[position].reputation,
+                                            creationSession.queryResults[position].ideology,
+            )
+            characterDao?.updateClass(  characterDao?.classIDFromSubject(creationSession.queryResults[position].id),
+                                        creationSession.queryResults[position].class_name,
+                                        creationSession.queryResults[position].currency
+            )
+
+            //CustomModel
+            CustomModel.instance?.setPosition(position)
+            CustomModel.instance?.setEditedChar(creationSession.queryResults[position])
+            CustomModel.instance?.changeState(true);
 
             val data = Intent(applicationContext, QuerySearchResults::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -222,6 +259,54 @@ class QueryCharEditPage: AppCompatActivity() {
         }
     }
 }
+
+class CustomModel private constructor() {
+    interface OnCustomStateListener {
+        fun stateChanged(pos: Int, editedChar: AllFourTablesJoined)
+    }
+
+    private var mListener: OnCustomStateListener? = null
+    private var position: Int = -1
+    private var editedChar: AllFourTablesJoined? = null
+
+    var state = false
+        private set
+
+    fun setPosition(position: Int){
+        this.position = position
+    }
+
+    fun setEditedChar(editedChar: AllFourTablesJoined){
+        this.editedChar = editedChar
+    }
+
+    fun setListener(listener: OnCustomStateListener?) {
+        mListener = listener
+    }
+
+    fun changeState(state: Boolean) {
+        if (mListener != null) {
+            this.state = state
+            notifyStateChange()
+        }
+    }
+
+    private fun notifyStateChange() {
+        mListener!!.stateChanged(position,   creationSession.queryResults[position])
+    }
+
+    companion object {
+        private var mInstance: CustomModel? = null
+        val instance: CustomModel?
+            get() {
+                if (mInstance == null) {
+                    mInstance = CustomModel()
+                }
+                return mInstance
+            }
+    }
+}
+
 //
 //interface OnEditPass {
 //    fun onEditPass(pos: Int, editedChar: AllFourTablesJoined)

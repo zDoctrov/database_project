@@ -134,6 +134,14 @@ class RecyclerAdapter(private val listener: OnCharListener) : RecyclerView.Adapt
         creationSession.queryResults = mutableQueryResults
     }
 
+    fun editCharItem(pos: Int, editedChar: AllFourTablesJoined){
+        mutableQueryResults[pos].name = editedChar.name
+        mutableQueryResults[pos].class_name = editedChar.class_name
+        mutableQueryResults[pos].race = editedChar.race
+        mutableQueryResults[pos].faction_name = editedChar.faction_name
+        notifyItemChanged(pos)
+    }
+
     override fun getItemCount(): Int {
         return mutableQueryResults.size
     }
