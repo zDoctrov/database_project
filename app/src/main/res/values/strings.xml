@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">database_project</string>
+    <string name="app_name">Built Different</string>
 
     <!--    CharActivity1-->
     <string-array name="races">
