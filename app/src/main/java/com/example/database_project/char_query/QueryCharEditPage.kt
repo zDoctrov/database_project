@@ -127,12 +127,73 @@ class QueryCharEditPage: AppCompatActivity() {
         //EditTextName
         binding.EditTextName.setText(creationSession.queryResults[position].name)
 
+        //Hair ArrayAdapter
+        val hairList = res.getStringArray(R.array.hair)
+        val hairArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, hairList)
+        binding.hairSpinner.adapter = hairArrayAdapter
+        binding.hairSpinner.setSelection(hairArrayAdapter.getPosition(creationSession.queryResults[position].hair))
+        binding.hairSpinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.imageView16.setImageResource(resources.getIdentifier(
+                    creationSession.setHairImage(binding.hairSpinner.selectedItem.toString()), "drawable", packageName))
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // your code here
+                // slight change to push
+            }
+        })
+
+        //Eyes ArrayAdapter
+        val eyesList = res.getStringArray(R.array.eyes)
+        val eyesArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, eyesList)
+        binding.eyesSpinner.adapter = eyesArrayAdapter
+        binding.eyesSpinner.setSelection(eyesArrayAdapter.getPosition(creationSession.queryResults[position].eyes))
+        binding.eyesSpinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.imageView15.setImageResource(resources.getIdentifier(
+                    creationSession.setEyesImage(binding.eyesSpinner.selectedItem.toString()), "drawable", packageName))
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+            }
+        })
+
+        //Ears ArrayAdapter
+        val earsList = res.getStringArray(R.array.ears)
+        val earsArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, earsList)
+        binding.earsSpinner.adapter = earsArrayAdapter
+        binding.earsSpinner.setSelection(earsArrayAdapter.getPosition(creationSession.queryResults[position].ears))
+        binding.earsSpinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.imageView14.setImageResource(resources.getIdentifier(
+                    creationSession.setEarsImage(binding.earsSpinner.selectedItem.toString()), "drawable", packageName))
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+            }
+        })
+
         //Race ArrayAdapter
         val raceList = res.getStringArray(R.array.races)
         val raceArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, raceList)
         binding.raceSpinnerEdit.adapter = raceArrayAdapter
         binding.raceSpinnerEdit.setSelection(raceArrayAdapter.getPosition(creationSession.queryResults[position].race))
-
         binding.raceSpinnerEdit.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parentView: AdapterView<*>?,
@@ -145,8 +206,6 @@ class QueryCharEditPage: AppCompatActivity() {
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
-                // your code here
-                // slight change to push
             }
         })
 
@@ -161,7 +220,6 @@ class QueryCharEditPage: AppCompatActivity() {
         val classArrayAdapter = ArrayAdapter(this, R.layout.custom_spinner_item, classList)
         binding.classSpinnerEdit.adapter = classArrayAdapter
         binding.classSpinnerEdit.setSelection(classArrayAdapter.getPosition(creationSession.queryResults[position].class_name))
-
         binding.classSpinnerEdit.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parentView: AdapterView<*>?,
@@ -169,34 +227,27 @@ class QueryCharEditPage: AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                // your code here
                 getStartingCurrency(binding.classSpinnerEdit.selectedItem.toString())
                 binding.actualCreditId2.text = creationSession.user_currency.toString()
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
-                // your code here
-                // slight change to push
             }
         })
 
         val saveButton = findViewById<Button>(R.id.btnSave)
         saveButton.setOnClickListener{
             //Set values in creationSession
-            creationSession.queryResults[position].name = binding.EditTextName.text.toString()
+            creationSession.queryResults[position].hair = binding.hairSpinner.selectedItem.toString()
             creationSession.queryResults[position].race = binding.raceSpinnerEdit.selectedItem.toString()
+            creationSession.queryResults[position].eyes = binding.eyesSpinner.selectedItem.toString()
+            creationSession.queryResults[position].ears = binding.earsSpinner.selectedItem.toString()
+
+            creationSession.queryResults[position].name = binding.EditTextName.text.toString()
             creationSession.queryResults[position].faction_name = binding.factionSpinnerEdit.selectedItem.toString()
             creationSession.queryResults[position].class_name = binding.classSpinnerEdit.selectedItem.toString()
 
-//            @Query("""UPDATE build SET race = :race, hair = :hair, ears = :ears, eyes = :eyes WHERE build_id = :build_id""")
-//    fun updateBuild(build_id: Int?,
-//                    race: String?,
-//                    hair: String?,
-//                    ears: String?,
-//                    eyes: String?
-
             //Update Database values
-            //TODO: Get ids of other tables
             val characterDao = RoomAppDB.getAppDatabase(this)?.characterDao()
             characterDao?.updateSubject(creationSession.queryResults[position].id,
                                         creationSession.queryResults[position].name)
