@@ -33,17 +33,20 @@ class InstanceResultPage() : AppCompatActivity() {
         var imageNameEyes = "@drawable/"
         var imageNameEars = "@drawable/"
 
-        val positionRace = intent.getIntExtra("position", -1)
-        val raceType = creationSession.queryResults[positionRace].race
+        //Get which card cell was chosen and apply their data to the activity screen as appropriately
+        val position = intent.getIntExtra("position", -1)
 
-        val positionHair = intent.getIntExtra("position", -1)
-        val HairType = creationSession.queryResults[positionHair].hair
+//        val positionRace = intent.getIntExtra("position", -1)
+        val raceType = creationSession.queryResults[position].race
 
-        val positionEyes = intent.getIntExtra("position", -1)
-        val EyeType = creationSession.queryResults[positionEyes].eyes
+//        val positionHair = intent.getIntExtra("position", -1)
+        val HairType = creationSession.queryResults[position].hair
 
-        val positionEars = intent.getIntExtra("position", -1)
-        val EarType = creationSession.queryResults[positionEars].ears
+//        val positionEyes = intent.getIntExtra("position", -1)
+        val EyeType = creationSession.queryResults[position].eyes
+
+//        val positionEars = intent.getIntExtra("position", -1)
+        val EarType = creationSession.queryResults[position].ears
 
         when(raceType){
             "Human"->{
@@ -118,7 +121,7 @@ class InstanceResultPage() : AppCompatActivity() {
 
 
         //Get which card cell was chosen and apply their data to the activity screen as appropriately
-        val position = intent.getIntExtra("position", -1)
+//        val position = intent.getIntExtra("position", -1)
 
         binding.actualNameId.text = creationSession.queryResults[position].name
         binding.actualRaceId.text = creationSession.queryResults[position].race
@@ -135,7 +138,7 @@ class InstanceResultPage() : AppCompatActivity() {
                 characterDao?.delete(creationSession.queryResults[position].id)
 
                 val deleteIntent = Intent(this, QuerySearchResults::class.java)
-                    .putExtra("position", position)
+                    .putExtra("deletePosition", position)
                 setResult(RESULT_OK, deleteIntent)
                 finish()
             }
